@@ -2,7 +2,7 @@ COMPIL = clang++
 
 FLAGS = -Wall -Werror -Wextra
 
-NAME = myphonebook
+NAME = megaphone
 
 SRC = megaphone.cpp
 
