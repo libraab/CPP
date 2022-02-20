@@ -1,27 +1,106 @@
-COMPIL = clang++
+NAME		= myphonebook
 
-FLAGS = -Wall -Werror -Wextra
+# ███████╗    ██╗    ██╗         ███████╗    ███████╗
+# ██╔════╝    ██║    ██║         ██╔════╝    ██╔════╝
+# █████╗      ██║    ██║         █████╗      ███████╗
+# ██╔══╝      ██║    ██║         ██╔══╝      ╚════██║
+# ██║         ██║    ███████╗    ███████╗    ███████║
+# ╚═╝         ╚═╝    ╚══════╝    ╚══════╝    ╚══════╝
 
-NAME = myphonebook
+SRC		= main.cpp \
+		  Contact.cpp \
+		  PhoneBook.cpp
 
-SRC = megaphone.cpp
+HEADER		= Contact.hpp \
+		  PhoneBook.hpp
 
-OBJ = $(SRC:.c=.o)
+OBJ		= ${SRC:.cpp=.o}
 
-%.o : %.c
-	@${COMPIL} ${FLAGS} -c $@ $<
+#  ██████╗     ██████╗     ███╗   ███╗    ██████╗     ██╗    ██╗
+# ██╔════╝    ██╔═══██╗    ████╗ ████║    ██╔══██╗    ██║    ██║
+# ██║         ██║   ██║    ██╔████╔██║    ██████╔╝    ██║    ██║
+# ██║         ██║   ██║    ██║╚██╔╝██║    ██╔═══╝     ██║    ██║
+# ╚██████╗    ╚██████╔╝    ██║ ╚═╝ ██║    ██║         ██║    ███████╗
+#  ╚═════╝     ╚═════╝     ╚═╝     ╚═╝    ╚═╝         ╚═╝    ╚══════╝
 
-all : $(NAME)
+COMP		= clang++
+FLAGS	  	= -Wall -Wextra -Werror
+RM		= rm -rf
 
-NAME : $(OBJ)
-	@${COMPIL} ${FLAGS} -c $@ $<
+# ██████╗     ██╗   ██╗    ██╗         ███████╗    ███████╗
+# ██╔══██╗    ██║   ██║    ██║         ██╔════╝    ██╔════╝
+# ██████╔╝    ██║   ██║    ██║         █████╗      ███████╗
+# ██╔══██╗    ██║   ██║    ██║         ██╔══╝      ╚════██║
+# ██║  ██║    ╚██████╔╝    ███████╗    ███████╗    ███████║
+# ╚═╝  ╚═╝     ╚═════╝     ╚══════╝    ╚══════╝    ╚══════╝
 
-clean :
-	@rm -rf *.o
+$(NAME):	${OBJ}
+			@$(COMP) $(FLAGS) ${OBJ} -o $(NAME)
+			@printf $(magenta)
+			@printf "➖➖➖➖➖➖➖\n"
+			@printf "COMPILED ✅ \n"
+			@printf "➖➖➖➖➖➖➖\n"
+			@printf $(reset)
 
-fclean : clean
-	@rm -rf $(NAME)
+all:		${NAME}
 
-re	: fclean all
+%.o: %.cpp	${HEADER}
+			@$(CC) -c $(CFLAGS) -o $@ $<
 
-.PHONY : all clean fclean re
+re: 		fclean all
+
+clean:
+			@${RM} ${OBJ}
+			@printf $(yellow)
+			@printf "Object files have been deleted ✅ \n"
+			@printf $(reset)
+
+fclean:		clean
+			@${RM} $(NAME)
+			@printf $(cyan)
+			@printf "Executable file has been deleted ✅ \n"
+			@printf $(red)
+			@printf "✨ Your folder is clean ✨ \n"
+			@printf $(reset)
+
+.PHONY: 	all clean fclean re
+
+#  ██████╗     ██████╗     ██╗          ██████╗     ██████╗
+# ██╔════╝    ██╔═══██╗    ██║         ██╔═══██╗    ██╔══██╗
+# ██║         ██║   ██║    ██║         ██║   ██║    ██████╔╝
+# ██║         ██║   ██║    ██║         ██║   ██║    ██╔══██╗
+# ╚██████╗    ╚██████╔╝    ███████╗    ╚██████╔╝    ██║  ██║
+#  ╚═════╝     ╚═════╝     ╚══════╝     ╚═════╝     ╚═╝  ╚═╝
+
+
+black 				=	"[1;30m"
+red 				=	"[1;31m"
+green 				=	"[1;32m"
+yellow 				=	"[1;33m"
+blue 				=	"[1;34m"
+magenta 			=	"[1;35m"
+cyan 				=	"[1;36m"
+white 				=	"[1;37m"
+
+bg_black 			=	"[40m"
+bg_red 				=	"[41m"
+bg_green 			=	"[42m"
+bg_yellow 			=	"[43m"
+bg_blue 			=	"[44m"
+bg_magenta 			=	"[45m"
+bg_cyan 			=	"[46m"
+bg_white 			=	"[47m"
+
+reset 				=	"[0m"
+
+#################################################################################
+#                                                                               #
+#                   ##                                             #####        #
+#                   ##                                             #            #
+#                   ##                                           #######        #
+#                   ##                                              ##          #
+#       #####       ##          ####           #    #    #          ##          #
+#       #           ##         #    #          #    #    #          ##          #
+#     ########      ########################### #### ####           ##          #
+#                                                                               #
+#################################################################################
