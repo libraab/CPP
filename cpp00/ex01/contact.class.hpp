@@ -1,12 +1,15 @@
-#ifndef CONTACT_CLASS_HPP
-#define CONTACT_CLASS_HPP
+#ifndef CONTACT_CLASS_H
+#define CONTACT_CLASS_H
 
-#include <string>
 #include <iostream>
+#include <iomanip>
+#include <string>
+#include <stdlib.h>
+#include <cstdlib>
 
 class contact
 {
-	public;
+	public:
 		contact(void);
 		~contact(void);
 
@@ -25,7 +28,7 @@ class contact
 		std::string ft_get_secret(void) const;
 		void    ft_stock_secret(std::string const str);
 
-	private;
+	private:
 
 		std::string first_name;
 		std::string last_name;

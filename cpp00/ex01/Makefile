@@ -1,4 +1,16 @@
-NAME		= myphonebook
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: abouhlel <abouhlel@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2021/12/13 13:39:02 by abouhlel          #+#    #+#              #
+#    Updated: 2021/12/24 14:53:43 by abouhlel         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+NAME =			myphonebook
 
 # ███████╗    ██╗    ██╗         ███████╗    ███████╗
 # ██╔════╝    ██║    ██║         ██╔════╝    ██╔════╝
@@ -7,14 +19,12 @@ NAME		= myphonebook
 # ██║         ██║    ███████╗    ███████╗    ███████║
 # ╚═╝         ╚═╝    ╚══════╝    ╚══════╝    ╚══════╝
 
-SRC		= main.cpp \
-		  Contact.cpp \
-		  PhoneBook.cpp
+HEADER_FILE 		= contact.class.hpp
 
-HEADER		= Contact.hpp \
-		  PhoneBook.hpp
+SRCS			= main.cpp \
+			  contact.class.cpp
 
-OBJ		= ${SRC:.cpp=.o}
+OBJ			= ${SRCS:.cpp=.o}
 
 #  ██████╗     ██████╗     ███╗   ███╗    ██████╗     ██╗    ██╗
 # ██╔════╝    ██╔═══██╗    ████╗ ████║    ██╔══██╗    ██║    ██║
@@ -23,9 +33,9 @@ OBJ		= ${SRC:.cpp=.o}
 # ╚██████╗    ╚██████╔╝    ██║ ╚═╝ ██║    ██║         ██║    ███████╗
 #  ╚═════╝     ╚═════╝     ╚═╝     ╚═╝    ╚═╝         ╚═╝    ╚══════╝
 
-COMP		= clang++
-FLAGS	  	= -Wall -Wextra -Werror
-RM		= rm -rf
+COMP			= clang++
+FLAGS	  		= -Wall -Wextra -Werror
+RM			= rm -rf
 
 # ██████╗     ██╗   ██╗    ██╗         ███████╗    ███████╗
 # ██╔══██╗    ██║   ██║    ██║         ██╔════╝    ██╔════╝
@@ -34,36 +44,40 @@ RM		= rm -rf
 # ██║  ██║    ╚██████╔╝    ███████╗    ███████╗    ███████║
 # ╚═╝  ╚═╝     ╚═════╝     ╚══════╝    ╚══════╝    ╚══════╝
 
-$(NAME):	${OBJ}
-			@$(COMP) $(FLAGS) ${OBJ} -o $(NAME)
+${NAME}:	${OBJ}
+			@${COMP} ${FLAGS} ${OBJ} -o ${NAME}
+			@printf "➖➖➖➖➖➖\n"
 			@printf $(magenta)
-			@printf "➖➖➖➖➖➖➖\n"
-			@printf "COMPILED ✅ \n"
-			@printf "➖➖➖➖➖➖➖\n"
+			@printf "COMPILED ✅\n"
+			@printf "➖➖➖➖➖➖\n"
 			@printf $(reset)
 
 all:		${NAME}
 
-%.o: %.cpp	${HEADER}
-			@$(CC) -c $(CFLAGS) -o $@ $<
+%.o: %.c	${HEADERS}
+			@printf $(green)
+			@printf "Generating objects... %-33.33s    \r" $@
+			@${COMP} -c ${FLAGS} -o $@ $<
+			@printf $(reset)
 
 re: 		fclean all
 
 clean:
 			@${RM} ${OBJ}
 			@printf $(yellow)
-			@printf "Object files have been deleted ✅ \n"
+			@printf "Object files have been deleted 🗑 \n"
 			@printf $(reset)
 
 fclean:		clean
-			@${RM} $(NAME)
+			@${RM} ${NAME}
 			@printf $(cyan)
-			@printf "Executable file has been deleted ✅ \n"
+			@printf "Executable file has been deleted 🗑 \n"
 			@printf $(red)
-			@printf "✨ Your folder is clean ✨ \n"
+			@printf "✨ Your folder is now clean ✨\n"
 			@printf $(reset)
 
 .PHONY: 	all clean fclean re
+
 
 #  ██████╗     ██████╗     ██╗          ██████╗     ██████╗
 # ██╔════╝    ██╔═══██╗    ██║         ██╔═══██╗    ██╔══██╗
@@ -73,25 +87,25 @@ fclean:		clean
 #  ╚═════╝     ╚═════╝     ╚══════╝     ╚═════╝     ╚═╝  ╚═╝
 
 
-black 				=	"[1;30m"
-red 				=	"[1;31m"
-green 				=	"[1;32m"
-yellow 				=	"[1;33m"
-blue 				=	"[1;34m"
-magenta 			=	"[1;35m"
-cyan 				=	"[1;36m"
-white 				=	"[1;37m"
+black 				=	"[1;30m"
+red 				=	"[1;31m"
+green 				=	"[1;32m"
+yellow 				=	"[1;33m"
+blue 				=	"[1;34m"
+magenta 			=	"[1;35m"
+cyan 				=	"[1;36m"
+white 				=	"[1;37m"
 
-bg_black 			=	"[40m"
-bg_red 				=	"[41m"
-bg_green 			=	"[42m"
-bg_yellow 			=	"[43m"
-bg_blue 			=	"[44m"
-bg_magenta 			=	"[45m"
-bg_cyan 			=	"[46m"
-bg_white 			=	"[47m"
+bg_black 			=	"[40m"
+bg_red 				=	"[41m"
+bg_green 			=	"[42m"
+bg_yellow 			=	"[43m"
+bg_blue 			=	"[44m"
+bg_magenta 			=	"[45m"
+bg_cyan 			=	"[46m"
+bg_white 			=	"[47m"
 
-reset 				=	"[0m"
+reset 				=	"[0m"
 
 #################################################################################
 #                                                                               #
