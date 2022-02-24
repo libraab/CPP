@@ -1,5 +1,4 @@
-#ifndef CONTACT_CLASS_H
-#define CONTACT_CLASS_H
+#pragma once
 
 #include <iostream>
 #include <iomanip>
@@ -7,11 +6,11 @@
 #include <stdlib.h>
 #include <cstdlib>
 
-class contact
+class Contact
 {
 	public:
-		contact(void);
-		~contact(void);
+		Contact(void);
+		~Contact(void);
 
 		std::string ft_get_first_name(void) const;
 		void    ft_stock_first_name(std::string const str);
@@ -29,13 +28,9 @@ class contact
 		void    ft_stock_secret(std::string const str);
 
 	private:
-
 		std::string first_name;
 		std::string last_name;
 		std::string nickname;
 		std::string phone_nbr;
 		std::string secret;
- 	
 };
-
-#endif

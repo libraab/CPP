@@ -6,7 +6,7 @@
 #    By: abouhlel <abouhlel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/13 13:39:02 by abouhlel          #+#    #+#              #
-#    Updated: 2021/12/24 14:53:43 by abouhlel         ###   ########.fr        #
+#    Updated: 2022/02/24 18:22:02 by abouhlel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,10 +19,11 @@ NAME =			myphonebook
 # ██║         ██║    ███████╗    ███████╗    ███████║
 # ╚═╝         ╚═╝    ╚══════╝    ╚══════╝    ╚══════╝
 
-HEADER_FILE 		= contact.class.hpp
+HEADER_FILE = Account.hpp
 
-SRCS			= main.cpp \
-			  contact.class.cpp
+SRCS		= main.cpp \
+			  Account.cpp \
+			  tests.cpp
 
 OBJ			= ${SRCS:.cpp=.o}
 
@@ -33,8 +34,8 @@ OBJ			= ${SRCS:.cpp=.o}
 # ╚██████╗    ╚██████╔╝    ██║ ╚═╝ ██║    ██║         ██║    ███████╗
 #  ╚═════╝     ╚═════╝     ╚═╝     ╚═╝    ╚═╝         ╚═╝    ╚══════╝
 
-COMP			= clang++
-FLAGS	  		= -Wall -Wextra -Werror
+COMP		= clang++
+FLAGS	  	= -Wall -Wextra -Werror
 RM			= rm -rf
 
 # ██████╗     ██╗   ██╗    ██╗         ███████╗    ███████╗
