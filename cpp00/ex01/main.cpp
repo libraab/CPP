@@ -6,7 +6,7 @@
 /*   By: abouhlel <abouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 20:35:10 by abouhlel          #+#    #+#             */
-/*   Updated: 2022/02/24 21:12:04 by abouhlel         ###   ########.fr       */
+/*   Updated: 2022/02/24 21:57:27 by abouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 int main(void)
 {
 	PhoneBook friends;
+
 	while (1)
 	{
 		std::string	cmd;
 		std::cout << std::endl << "Please enter a command (ADD, SEARCH, EXIT) --> ";
-		while (cmd.empty())
-			std::getline(std::cin, cmd);
+		std::getline(std::cin, cmd);
 		if (cmd == "ADD")
 		{
 			std::string data[5];
@@ -41,7 +41,7 @@ int main(void)
 				std::getline(std::cin, data[4]);
 			friends.add_contact(data[0], data[1], data[2], data[3], data[4]);
 		}
-		if (cmd == "SEARCH")
+		else if (cmd == "SEARCH")
 		{
 			if (friends.print_all() == true)
 			{
@@ -52,7 +52,7 @@ int main(void)
 				friends.print_contact(x);
 			}
 		}
-		if (cmd == "EXIT")
+		else if (cmd == "EXIT")
 		{
 			std::cout << "Bye hun 😘" << std::endl;
 			exit(0);
