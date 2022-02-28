@@ -6,7 +6,7 @@
 #    By: abouhlel <abouhlel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/13 13:39:02 by abouhlel          #+#    #+#              #
-#    Updated: 2021/12/24 14:53:43 by abouhlel         ###   ########.fr        #
+#    Updated: 2022/02/25 17:34:15 by abouhlel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,12 +19,14 @@ NAME =			myphonebook
 # ██║         ██║    ███████╗    ███████╗    ███████║
 # ╚═╝         ╚═╝    ╚══════╝    ╚══════╝    ╚══════╝
 
-HEADER_FILE 		= contact.class.hpp
+HEADER_FILE 	= Zombie.hpp
 
 SRCS			= main.cpp \
-			  contact.class.cpp
+			 	  newZombie.cpp \
+				  randomChump.cpp \
+				  Zombie.cpp
 
-OBJ			= ${SRCS:.cpp=.o}
+OBJ				= ${SRCS:.cpp=.o}
 
 #  ██████╗     ██████╗     ███╗   ███╗    ██████╗     ██╗    ██╗
 # ██╔════╝    ██╔═══██╗    ████╗ ████║    ██╔══██╗    ██║    ██║
@@ -35,7 +37,7 @@ OBJ			= ${SRCS:.cpp=.o}
 
 COMP			= clang++
 FLAGS	  		= -Wall -Wextra -Werror
-RM			= rm -rf
+RM				= rm -rf
 
 # ██████╗     ██╗   ██╗    ██╗         ███████╗    ███████╗
 # ██╔══██╗    ██║   ██║    ██║         ██╔════╝    ██╔════╝
@@ -46,7 +48,7 @@ RM			= rm -rf
 
 ${NAME}:	${OBJ}
 			@${COMP} ${FLAGS} ${OBJ} -o ${NAME}
-			@printf "➖➖➖➖➖➖\n"
+			@printf "\n➖➖➖➖➖➖\n"
 			@printf $(magenta)
 			@printf "COMPILED ✅\n"
 			@printf "➖➖➖➖➖➖\n"
@@ -54,7 +56,7 @@ ${NAME}:	${OBJ}
 
 all:		${NAME}
 
-%.o: %.c	${HEADERS}
+%.o: %.cpp	${HEADERS}
 			@printf $(green)
 			@printf "Generating objects... %-33.33s    \r" $@
 			@${COMP} -c ${FLAGS} -o $@ $<
