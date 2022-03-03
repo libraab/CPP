@@ -6,7 +6,7 @@
 /*   By: abouhlel <abouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 17:26:10 by abouhlel          #+#    #+#             */
-/*   Updated: 2022/03/03 16:42:39 by abouhlel         ###   ########.fr       */
+/*   Updated: 2022/03/03 17:34:55 by abouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int main ( void)
 		delete Z_thomas;
 	}
 	std::cout << "➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖" << std::endl;
-	std::cout << "Creating the third Zombie, Hanen, on the heap, using randomChump function" << std::endl;
-	randomChump("Hanen");
+	std::cout << "Creating the third Zombie, Malik, on the stack, using randomChump function" << std::endl;
+	randomChump("Malik");
 	return (0);
 }
