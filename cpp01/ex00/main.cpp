@@ -6,9 +6,29 @@
 /*   By: abouhlel <abouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 17:26:10 by abouhlel          #+#    #+#             */
-/*   Updated: 2022/02/26 15:11:27 by abouhlel         ###   ########.fr       */
+/*   Updated: 2022/03/03 16:42:39 by abouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
+int main ( void)
+{
+	std::cout << "➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖" << std::endl;
+	std::cout << "Creating the first Zombie, Bryan, on the stack" << std::endl;
+	{
+		Zombie Z_bryan("Bryan");
+		Z_bryan.announce();
+	}
+	std::cout << "➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖" << std::endl;
+	std::cout << "Creating the second Zombie, Thomas, on the heap, using newZombie function" << std::endl;
+	{
+    	Zombie *Z_thomas = newZombie("Thomas");
+		Z_thomas->announce();
+		delete Z_thomas;
+	}
+	std::cout << "➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖" << std::endl;
+	std::cout << "Creating the third Zombie, Hanen, on the heap, using randomChump function" << std::endl;
+	randomChump("Hanen");
+	return (0);
+}
