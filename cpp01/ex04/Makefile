@@ -6,11 +6,11 @@
 #    By: abouhlel <abouhlel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/13 13:39:02 by abouhlel          #+#    #+#              #
-#    Updated: 2021/12/24 14:53:43 by abouhlel         ###   ########.fr        #
+#    Updated: 2022/03/09 16:27:55 by abouhlel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME =			myphonebook
+NAME =			sed
 
 # ███████╗    ██╗    ██╗         ███████╗    ███████╗
 # ██╔════╝    ██║    ██║         ██╔════╝    ██╔════╝
@@ -19,11 +19,11 @@ NAME =			myphonebook
 # ██║         ██║    ███████╗    ███████╗    ███████║
 # ╚═╝         ╚═╝    ╚══════╝    ╚══════╝    ╚══════╝
 
-HEADER_FILE 		= contact.class.hpp
+HEADER_FILE 		= replace.hpp
 
 SRCS			= main.cpp \
-			  contact.class.cpp
-
+				  replace.hpp
+				  
 OBJ			= ${SRCS:.cpp=.o}
 
 #  ██████╗     ██████╗     ███╗   ███╗    ██████╗     ██╗    ██╗
