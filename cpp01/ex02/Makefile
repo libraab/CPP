@@ -6,11 +6,11 @@
 #    By: abouhlel <abouhlel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/13 13:39:02 by abouhlel          #+#    #+#              #
-#    Updated: 2022/02/28 17:46:39 by abouhlel         ###   ########.fr        #
+#    Updated: 2022/03/09 14:06:42 by abouhlel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME =			myphonebook
+NAME =			addr
 
 # ███████╗    ██╗    ██╗         ███████╗    ███████╗
 # ██╔════╝    ██║    ██║         ██╔════╝    ██╔════╝
@@ -18,8 +18,6 @@ NAME =			myphonebook
 # ██╔══╝      ██║    ██║         ██╔══╝      ╚════██║
 # ██║         ██║    ███████╗    ███████╗    ███████║
 # ╚═╝         ╚═╝    ╚══════╝    ╚══════╝    ╚══════╝
-
-HEADER_FILE 	= Zombie.hpp
 
 SRCS			= main.cpp \
 
@@ -53,7 +51,7 @@ ${NAME}:	${OBJ}
 
 all:		${NAME}
 
-%.o: %.cpp	${HEADERS}
+%.o: %.cpp	
 			@printf $(green)
 			@printf "Generating objects... %-33.33s    \r" $@
 			@${COMP} -c ${FLAGS} -o $@ $<

@@ -6,7 +6,7 @@
 /*   By: abouhlel <abouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 17:28:19 by abouhlel          #+#    #+#             */
-/*   Updated: 2022/03/09 12:53:33 by abouhlel         ###   ########.fr       */
+/*   Updated: 2022/03/09 13:52:21 by abouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@ Zombie::~Zombie(void)
 
 void    Zombie::announce(void)
 {
-    std::cout << this->_name << "BraiiiiiiinnnzzzZ..." << std::endl;
+    std::cout << this->_name << " : BraiiiiiiinnnzzzZ..." << std::endl;
     return ;
 }
 
-Zombie* newZombie(std::string name)
+Zombie *newZombie(std::string name)
 {
     Zombie *newZombie = new Zombie;
     newZombie->nameZombie(name);
@@ -35,7 +35,12 @@ Zombie* newZombie(std::string name)
 
 void    randomChump(std::string name)
 {
-    Zombie* randomChump = newZombie(name);
+    Zombie *randomChump = newZombie(name);
     randomChump->announce();
     delete randomChump;
+}
+
+void    Zombie::nameZombie(std::string name)
+{
+    this->_name = name;
 }
