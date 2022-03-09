@@ -6,7 +6,7 @@
 /*   By: abouhlel <abouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 17:28:19 by abouhlel          #+#    #+#             */
-/*   Updated: 2022/03/09 12:00:53 by abouhlel         ###   ########.fr       */
+/*   Updated: 2022/03/09 12:53:33 by abouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,15 @@
 
 Zombie::Zombie(void) {} ;
 
-Zombie::~Zombie(void) {} ;
-
-void    Zombie::announce(void) const
+Zombie::~Zombie(void)
 {
-    std::cout << Zombie::_name << "BraiiiiiiinnnzzzZ..." << std::endl;
+    std::cout << this->_name << " has been 💀 eliminated 🔪" << std::endl;
+    return ;
+}
+
+void    Zombie::announce(void)
+{
+    std::cout << this->_name << "BraiiiiiiinnnzzzZ..." << std::endl;
     return ;
 }
 
