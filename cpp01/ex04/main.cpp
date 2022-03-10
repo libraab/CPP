@@ -6,7 +6,7 @@
 /*   By: abouhlel <abouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 16:28:04 by abouhlel          #+#    #+#             */
-/*   Updated: 2022/03/09 18:08:53 by abouhlel         ###   ########.fr       */
+/*   Updated: 2022/03/10 14:11:50 by abouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,22 +29,41 @@ int main(int ac, char **av)
                 std::cout << "ERROR ⛔️  : Wrong strings " << std::endl;
                 return (1);
             }
+            else if (std::string(av[2]).length() == 1 && (std::string(av[3]).find(std::string(av[2]))) != std::string::npos)
+            {
+                std::cout << "ERROR ⛔️  : Endless change " << std::endl;
+                return (1);
+            }
             else
             {
                 std::string     line;
                 std::string     text;
+                std::string     newfile;
+                
+                newfile = (std::string(av[1])) + ".replace";
                 while(getline(ifs, line))
                     text += line + "\n";
                 int  x = 0;
-                while(1)
+                while(1 && x != std::string::npos)
                 {
-                    if ((x = text.find(std::string(av[2])) >= 0)
+                    x = text.find(std::string(av[2]));
+                    if (x != std::string::npos)
                     {
+                        std::cout << "here" << std::endl;
                         text.erase(x, std::string(av[2]).length());
                         text.insert(x, std::string(av[3]));
                     }
+                    else
+                    {
+                        std::cout << "Done ✅  : All occurences (if there were any) have been replaced. " << std::endl;
+                        break;
+                    }
                 }
+                std::ofstream ofs(newfile, std::ofstream::trunc);
+                ofs << text;
+                ofs.close();
                 ifs.close();
+                return (0);
             }
         }
         else
