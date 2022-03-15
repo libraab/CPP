@@ -6,7 +6,7 @@
 /*   By: abouhlel <abouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 17:49:29 by abouhlel          #+#    #+#             */
-/*   Updated: 2022/03/09 16:13:36 by abouhlel         ###   ########.fr       */
+/*   Updated: 2022/03/14 17:28:21 by abouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class Weapon
         Weapon(std::string newtype);
         ~Weapon(void);
         
-        std::string const   getType(void) const;
+        std::string const   &getType(void);
         void                setType(std::string newtype);
         
     private:

@@ -6,7 +6,7 @@
 /*   By: abouhlel <abouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 14:17:53 by abouhlel          #+#    #+#             */
-/*   Updated: 2022/03/10 15:46:17 by abouhlel         ###   ########.fr       */
+/*   Updated: 2022/03/14 18:23:25 by abouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,21 +43,16 @@ Karen::~Karen(void) {} ;
     void    Karen::complain(std::string level)
     {
         std::string levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+        void (Karen::*fcts[4])(void) = {&Karen::_debug, &Karen::_info, &Karen::_warning, &Karen::_error};
         
-        int x = 0;
         for(int i = 0; i < 4; i++)
         {
             if (level.compare(levels[i]) == 0)
-                x = i + 1 ;
+            {
+                (this->*fcts[i])();
+                return ;
+            }
         }
-        switch (x)
-        {
-            case 1: _debug();      break;
-            case 2: _info();       break;
-            case 3: _warning();    break;
-            case 4: _error();      break;
-            case 0:
-                std::cout << "Wrong level" << std::endl;
-                break;
-        }
-    }
+        std::cout << "Wrong level" << std::endl;
+         
+    } 

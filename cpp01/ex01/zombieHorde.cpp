@@ -6,7 +6,7 @@
 /*   By: abouhlel <abouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 12:00:30 by abouhlel          #+#    #+#             */
-/*   Updated: 2022/03/09 13:51:43 by abouhlel         ###   ########.fr       */
+/*   Updated: 2022/03/14 17:12:32 by abouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,22 @@
 
 Zombie  *zombieHorde(int N, std::string name)
 {
-    Zombie *z_horde = new Zombie[N];
-    for (int i = 0; i < N;i++)
+    if (N >= 0)
     {
-        std::string x = name;
-        z_horde[i].nameZombie(x += std::to_string(i));
-        z_horde[i].announce();
+        Zombie *z_horde = new Zombie[N];
+        for (int i = 0; i < N;i++)
+        {
+            std::string x = name;
+            z_horde[i].nameZombie(x += std::to_string(i));
+            z_horde[i].announce();
+        }
+        return (z_horde);
     }
-    return (z_horde);
+    else
+    {
+        std::cout << "ERROR ! Wrong argument" << std::endl;
+        return (NULL);
+    }
 }
 
 void    eraser(Zombie *z_horde)

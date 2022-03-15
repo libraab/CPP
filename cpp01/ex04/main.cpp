@@ -6,7 +6,7 @@
 /*   By: abouhlel <abouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 16:28:04 by abouhlel          #+#    #+#             */
-/*   Updated: 2022/03/10 14:11:50 by abouhlel         ###   ########.fr       */
+/*   Updated: 2022/03/14 17:32:02 by abouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ int main(int ac, char **av)
                     x = text.find(std::string(av[2]));
                     if (x != std::string::npos)
                     {
-                        std::cout << "here" << std::endl;
                         text.erase(x, std::string(av[2]).length());
                         text.insert(x, std::string(av[3]));
                     }
