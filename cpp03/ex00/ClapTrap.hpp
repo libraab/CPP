@@ -6,7 +6,7 @@
 /*   By: abouhlel <abouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 13:06:50 by abouhlel          #+#    #+#             */
-/*   Updated: 2022/03/21 13:06:56 by abouhlel         ###   ########.fr       */
+/*   Updated: 2022/03/21 17:04:51 by abouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,3 +33,5 @@ class ClapTrap
             int             _Energy_points;
             int             _Attack_damage;
 };
+
+std::ostream &operator <<(std::ostream &stream, const ClapTrap &stream_output);

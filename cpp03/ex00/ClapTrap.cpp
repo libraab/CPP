@@ -6,7 +6,7 @@
 /*   By: abouhlel <abouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 13:06:44 by abouhlel          #+#    #+#             */
-/*   Updated: 2022/03/21 16:59:25 by abouhlel         ###   ########.fr       */
+/*   Updated: 2022/03/21 17:12:16 by abouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 //************************************************************
 //     C O N S T R U C T O  R *** D E S T R U C T O R       //
 //************************************************************
-    ClapTrap::ClapTrap(void)
+    ClapTrap::ClapTrap(void) _Name(""), _Energy_points(10), _Hit_points(10), _Attack_damage(1);
     {
         std::cout << "Default constructor called " << std::endl;
         return;
@@ -33,6 +33,7 @@
     ClapTrap::ClapTrap(ClapTrap const &cpy)
     {
         std::cout << "Constructor copy called " << std::endl;
+        *this = cpy;
         return;
     }
 //************************************************************
@@ -40,6 +41,7 @@
 //************************************************************
     void    attack(const std::string &target)
     {
+        target.takeDamage(this)
         this->_Energy_points--;
     }
     void    takeDamage(unsigned int amount)
