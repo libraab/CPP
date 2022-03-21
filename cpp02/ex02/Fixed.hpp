@@ -6,7 +6,7 @@
 /*   By: abouhlel <abouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 12:17:05 by abouhlel          #+#    #+#             */
-/*   Updated: 2022/03/16 16:39:35 by abouhlel         ###   ########.fr       */
+/*   Updated: 2022/03/19 14:29:37 by abouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,10 +50,10 @@ class Fixed
             Fixed       &operator -- ();
             Fixed       operator -- (int);
             
-            Fixed               &min( Fixed &first,  Fixed &second);
-            Fixed               &max( Fixed &first,  Fixed &second);
-            const Fixed         &min(const Fixed &first, const Fixed &second);
-            const Fixed         &max(const Fixed &first, const Fixed &second);
+            static Fixed               &min( Fixed &first,  Fixed &second);
+            static Fixed               &max( Fixed &first,  Fixed &second);
+            static const Fixed         &min(const Fixed &first, const Fixed &second);
+            static const Fixed         &max(const Fixed &first, const Fixed &second);
             
     private:
             int                 _fixed;
