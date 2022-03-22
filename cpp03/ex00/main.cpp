@@ -15,10 +15,12 @@
 int main( void )
 {
     ClapTrap gamer1("Asma");
-    ClapTrap gamer2("Soukaina");
+    ClapTrap gamer2("Zac");
     
-    gamer1.attack("Soukaina");
-    //gamer2.takeDamage(1);
+    gamer1.attack("Zac");
+    gamer2.takeDamage(1);
     gamer2.beRepaired(1);
+    //gamer2.beRepaired(1);
+    //gamer1.attack("Soukaina");
     return (0);
 }
