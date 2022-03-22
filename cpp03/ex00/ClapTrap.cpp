@@ -6,7 +6,7 @@
 /*   By: abouhlel <abouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 13:06:44 by abouhlel          #+#    #+#             */
-/*   Updated: 2022/03/22 16:00:34 by abouhlel         ###   ########.fr       */
+/*   Updated: 2022/03/22 16:01:11 by abouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@
         if (this->_Energy_points == 0)
         {
             std::cout << this->_Name << " has no more Energy points ⛔️" << std::endl;
-            std::cout << "Healing process Fail ❌ " std::endl;
+            std::cout << "Healing process Fail ❌ " << std::endl;
             return;
         }
         this->_Hit_points = this->_Hit_points + amount;
