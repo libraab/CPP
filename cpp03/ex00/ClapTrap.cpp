@@ -6,7 +6,7 @@
 /*   By: abouhlel <abouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 13:06:44 by abouhlel          #+#    #+#             */
-/*   Updated: 2022/03/22 14:58:10 by abouhlel         ###   ########.fr       */
+/*   Updated: 2022/03/22 15:59:35 by abouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,23 +42,33 @@
 //************************************************************
     void    ClapTrap::attack(std::string const &target)
     {
-       // if (this->)
-        std::cout << "ClapTrap " << this->_Name << " attacks " << target << ", causing " << this->_Attack_damage << " points of damage!" << std::endl;
-        target.takeDamage(1);
+        if (this->_Energy_points == 0)
+        {
+            std::cout << this->_Name << " has no more Energy points ⛔️" << std::endl;
+            std::cout << "Attack Fail ❌ "
+            return;
+        }
+        std::cout << "ClapTrap " << this->_Name << " attacks " << target << ", causing 1 points of damage!" << std::endl;
         return;
     }
     void    ClapTrap::takeDamage(unsigned int amount)
     {
         this->_Hit_points = this->_Hit_points - amount;
-        std::cout << this->_Name << " has lost " << amount << " of Hit points " << std::endl;
+        std::cout << this->_Name << " has lost " << amount << " of Hit points 😥 ." << std::endl;
         std::cout << this->_Name << " has " << this->_Hit_points << " Hit points left." << std::endl;
         return;
     }
     void    ClapTrap::beRepaired(unsigned int amount)
     {
+        if (this->_Energy_points == 0)
+        {
+            std::cout << this->_Name << " has no more Energy points ⛔️" << std::endl;
+            std::cout << "Healing process Fail ❌ "
+            return;
+        }
         this->_Hit_points = this->_Hit_points + amount;
         this->_Energy_points--;
-        std::cout << this->_Name << " is recovering from the attack." << std::endl;
+        std::cout << this->_Name << " is recovering from the attack 🌿 ." << std::endl;
         std::cout << "This cost 1 Energy points." << std::endl;
         std::cout << this->_Name << " has " << this->_Energy_points << " Energy points left." << std::endl;
         return;
