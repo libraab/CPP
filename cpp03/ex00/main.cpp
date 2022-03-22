@@ -6,11 +6,11 @@
 /*   By: abouhlel <abouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 13:06:53 by abouhlel          #+#    #+#             */
-/*   Updated: 2022/03/21 17:04:18 by abouhlel         ###   ########.fr       */
+/*   Updated: 2022/03/22 14:50:58 by abouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Claptrap.hpp"
+#include "ClapTrap.hpp"
 
 int main( void )
 {
@@ -18,5 +18,7 @@ int main( void )
     ClapTrap gamer2("Soukaina");
     
     gamer1.attack("Soukaina");
-    
+    //gamer2.takeDamage(1);
+    gamer2.beRepaired(1);
+    return (0);
 }
