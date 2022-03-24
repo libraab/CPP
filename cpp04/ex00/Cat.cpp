@@ -6,9 +6,32 @@
 /*   By: abouhlel <abouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 13:46:21 by abouhlel          #+#    #+#             */
-/*   Updated: 2022/03/24 13:56:30 by abouhlel         ###   ########.fr       */
+/*   Updated: 2022/03/24 14:47:15 by abouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 
+//************************************************************
+//      C O N S T R U C T O R *** D E S T R U C T O R       //
+//************************************************************
+Cat::Cat(void)
+{
+    std::cout << "Cat constructor called 🐱" << std::endl;
+    this->type = "Cat";
+    return;
+}
+Cat::~Cat(void)
+{
+    std::cout << "Cat destructor called " << std::endl;
+    return;
+}
+
+//************************************************************
+//                      F U N C T I O N                     //
+//************************************************************
+void Cat::makeSound()
+{
+    std::cout << "Meowwwww 🗯 " << std::endl;
+    return;
+}

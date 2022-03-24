@@ -6,12 +6,13 @@
 /*   By: abouhlel <abouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 13:46:41 by abouhlel          #+#    #+#             */
-/*   Updated: 2022/03/24 13:56:06 by abouhlel         ###   ########.fr       */
+/*   Updated: 2022/03/24 14:42:42 by abouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 #include "Animal.hpp"
+#include <iostream>
 
 class Dog : public Animal
 {

@@ -6,9 +6,31 @@
 /*   By: abouhlel <abouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 13:47:36 by abouhlel          #+#    #+#             */
-/*   Updated: 2022/03/24 13:47:59 by abouhlel         ###   ########.fr       */
+/*   Updated: 2022/03/24 14:49:14 by abouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 
+//************************************************************
+//      C O N S T R U C T O R *** D E S T R U C T O R       //
+//************************************************************
+Dog::Dog(void)
+{
+    std::cout << "Dog constructor called 🐶" << std::endl;
+    this->type = "Dog";
+    return;
+}
+Dog::~Dog(void)
+{
+    std::cout << "Dog destructor called" << std::endl;
+    return;
+}
+//************************************************************
+//                      F U N C T I O N                     //
+//************************************************************
+void Dog::makeSound()
+{
+    std::cout << "Woafff 🗯 " << std::endl;
+    return;
+}
