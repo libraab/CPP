@@ -6,7 +6,7 @@
 /*   By: abouhlel <abouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 11:43:43 by abouhlel          #+#    #+#             */
-/*   Updated: 2022/03/23 13:46:45 by abouhlel         ###   ########.fr       */
+/*   Updated: 2022/03/24 10:32:23 by abouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@
 //************************************************************
     ScavTrap::ScavTrap(void) 
     {
-        this->_Name = "";
-        this->_Hit_points = 100;
-        this->_Energy_points = 50;
-        this->_Attack_damage = 20;
+        this->_name = "";
+        this->_hit_points = 100;
+        this->_energy_points = 50;
+        this->_attack_damage = 20;
         std::cout << "Default ScavTrap constructor called " << std::endl;
         return;
     }
@@ -31,12 +31,12 @@
     }
     ScavTrap::ScavTrap(std::string target_name)
     {
-        this->_Name = target_name;
-        this->_Hit_points = 100;
-        this->_Energy_points = 50;
-        this->_Attack_damage = 20;
+        this->_name = target_name;
+        this->_hit_points = 100;
+        this->_energy_points = 50;
+        this->_attack_damage = 20;
         std::cout << "ScavTrap constructor string called " << std::endl;
-        std::cout << "Gamer " << this->_Name << " has ben created" << std::endl;
+        std::cout << "Robot " << this->_name << " has ben created" << std::endl;
         return;
     }
     ScavTrap::ScavTrap(ScavTrap const &cpy)
@@ -48,8 +48,23 @@
 //************************************************************
 //                      f U N C T I O N S                   //
 //************************************************************
-    void guardGate()
+    void ScavTrap::guardGate()
     {
-        std::cout << "ScavTrap : Mode Gate Keeper activated ✅ " << std::endl;
+        std::cout << "ScavTrap " << this->_name << " Mode Gate Keeper activated ✅ " << std::endl;
+        return;
+    }
+    void    ScavTrap::attack(std::string const &target)
+    {
+        std::cout << "➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖" << std::endl;
+        std::cout << "         🤜🏻 A T T A C K 🤛🏻   " << std::endl;
+        std::cout << "➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖" << std::endl;
+        if (this->_energy_points == 0)
+        {
+            std::cout << this->_name << " has no more Energy points ⛔️" << std::endl;
+            std::cout << "Attack Failed ❌ " << std::endl;
+            return;
+        }
+        this->_energy_points--;
+        std::cout << "ScavTrap " << this->_name << " attacks " << target << ", causing " << this->_attack_damage << " points of damage!" << std::endl;
         return;
     }

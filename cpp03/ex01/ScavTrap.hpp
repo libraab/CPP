@@ -6,7 +6,7 @@
 /*   By: abouhlel <abouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 11:43:31 by abouhlel          #+#    #+#             */
-/*   Updated: 2022/03/23 15:43:08 by abouhlel         ###   ########.fr       */
+/*   Updated: 2022/03/24 10:31:41 by abouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ class ScavTrap : public ClapTrap
             ScavTrap(std::string target_name);
             ScavTrap(ScavTrap const &cpy);
             
+            void attack(const std::string &target);
             void guardGate();
 };
 

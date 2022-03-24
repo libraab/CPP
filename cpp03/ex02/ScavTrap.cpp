@@ -6,7 +6,7 @@
 /*   By: abouhlel <abouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 11:43:43 by abouhlel          #+#    #+#             */
-/*   Updated: 2022/03/24 09:08:37 by abouhlel         ###   ########.fr       */
+/*   Updated: 2022/03/24 10:17:37 by abouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@
 //************************************************************
     ScavTrap::ScavTrap(void) 
     {
-        this->_Name = "";
-        this->_Hit_points = 100;
-        this->_Energy_points = 50;
-        this->_Attack_damage = 20;
+        this->_name = "";
+        this->_hit_points = 100;
+        this->_energy_points = 50;
+        this->_attack_damage = 20;
         std::cout << "Default ScavTrap constructor called " << std::endl;
         return;
     }
@@ -31,12 +31,12 @@
     }
     ScavTrap::ScavTrap(std::string target_name)
     {
-        this->_Name = target_name;
-        this->_Hit_points = 100;
-        this->_Energy_points = 50;
-        this->_Attack_damage = 20;
+        this->_name = target_name;
+        this->_hit_points = 100;
+        this->_energy_points = 50;
+        this->_attack_damage = 20;
         std::cout << "ScavTrap constructor string called " << std::endl;
-        std::cout << "Gamer " << this->_Name << " has ben created" << std::endl;
+        std::cout << "Gamer " << this->_name << " has ben created" << std::endl;
         return;
     }
     ScavTrap::ScavTrap(ScavTrap const &cpy)
@@ -50,6 +50,6 @@
 //************************************************************
     void ScavTrap::guardGate()
     {
-        std::cout << "ScavTrap" << this->_Name << " Mode Gate Keeper activated ✅ " << std::endl;
+        std::cout << "ScavTrap" << this->_name << " Mode Gate Keeper activated ✅ " << std::endl;
         return;
     }

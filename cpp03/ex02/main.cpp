@@ -6,7 +6,7 @@
 /*   By: abouhlel <abouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 13:06:53 by abouhlel          #+#    #+#             */
-/*   Updated: 2022/03/24 09:27:27 by abouhlel         ###   ########.fr       */
+/*   Updated: 2022/03/24 10:41:19 by abouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,9 @@ int main( void )
     // robot2.guardGate();
     FragTrap buddy1("Thomas");
     FragTrap buddy2("Olivier");
+    buddy1.attack("Thomas");
+    buddy2.takeDamage(1);
+    buddy2.beRepaired(1);
     buddy1.highFivesGuys();
     
     
