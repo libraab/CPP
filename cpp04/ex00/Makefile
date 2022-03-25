@@ -6,7 +6,7 @@
 #    By: abouhlel <abouhlel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/15 12:12:15 by abouhlel          #+#    #+#              #
-#    Updated: 2022/03/24 14:37:34 by abouhlel         ###   ########.fr        #
+#    Updated: 2022/03/25 12:32:14 by abouhlel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,9 @@ NAME =		Animal
 SRCS		= main.cpp \
 			  Animal.cpp \
 			  Dog.cpp \
-			  Cat.cpp 
+			  Cat.cpp \
+			  WrongAnimal.cpp \
+			  WrongCat.cpp 
 				  
 OBJ			= ${SRCS:.cpp=.o}
 #➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖ #

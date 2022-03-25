@@ -1,41 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   animal.cpp                                         :+:      :+:    :+:   */
+/*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abouhlel <abouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/24 12:53:50 by abouhlel          #+#    #+#             */
-/*   Updated: 2022/03/25 11:16:52 by abouhlel         ###   ########.fr       */
+/*   Created: 2022/03/25 12:31:01 by abouhlel          #+#    #+#             */
+/*   Updated: 2022/03/25 12:42:49 by abouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "WrongAnimal.hpp"
 
 //************************************************************
 //      C O N S T R U C T O R *** D E S T R U C T O R       //
 //************************************************************
-    Animal::Animal(void)
+    WrongAnimal::WrongAnimal(void)
     {
-        std::cout << "Animal constructor called" << std::endl;
-        this->type = "Unspecified";
+        std::cout << "⛔️ WrongAnimal constructor called" << std::endl;
         return;
-    }
-    Animal::~Animal(void)
+    };
+    WrongAnimal::~WrongAnimal(void)
     {
-        std::cout << "Animal destructor called" << std::endl;
+        std::cout << "⛔️ WrongAnimal destructor called" << std::endl;
         return;
-    }
+    };
 //************************************************************
 //                      F U N C T I O N                     //
 //************************************************************
-    void Animal::makeSound() const
+    void WrongAnimal::makeSound() const
     {
-        std::cout << "Animal sound 🗯 " << std::endl;
+        std::cout << "❌ Wrong sound 🗯 " << std::endl;
         return;
     }
-    std::string const Animal::getType() const
-    {
-        return (this->type);
-    }
-    

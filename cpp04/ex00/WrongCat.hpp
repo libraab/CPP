@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   animal.hpp                                         :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abouhlel <abouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/24 12:16:12 by abouhlel          #+#    #+#             */
-/*   Updated: 2022/03/25 11:16:43 by abouhlel         ###   ########.fr       */
+/*   Created: 2022/03/25 12:31:29 by abouhlel          #+#    #+#             */
+/*   Updated: 2022/03/25 12:43:56 by abouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 #include <iostream>
+#include "WrongAnimal.hpp"
 
-class Animal
+class WrongCat : public WrongAnimal
 {
     public:
-        Animal(void);
-        ~Animal(void);
-        
-        virtual void        makeSound() const;
-        std::string const   getType() const;
-    
-    protected:
-        std::string type;
+        WrongCat(void);
+        ~WrongCat(void);
 };
