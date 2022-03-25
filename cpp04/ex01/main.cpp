@@ -6,7 +6,7 @@
 /*   By: abouhlel <abouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 12:15:08 by abouhlel          #+#    #+#             */
-/*   Updated: 2022/03/25 15:14:17 by abouhlel         ###   ########.fr       */
+/*   Updated: 2022/03/25 16:49:35 by abouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,6 @@ int main(void)
     const Animal* i = new Cat();
     delete j;
     delete i;
-    //...
+
     return (0);
 }

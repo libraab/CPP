@@ -6,7 +6,7 @@
 /*   By: abouhlel <abouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 12:59:46 by abouhlel          #+#    #+#             */
-/*   Updated: 2022/03/25 16:06:01 by abouhlel         ###   ########.fr       */
+/*   Updated: 2022/03/25 16:58:10 by abouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,5 @@ class Brain
         std::string     *get_ideas(void) const;
         
     protected:
-        std::string  _ideas[];
+        std::string  *_ideas;
 };
