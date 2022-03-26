@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abouhlel <abouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/24 12:15:08 by abouhlel          #+#    #+#             */
-/*   Updated: 2022/03/26 10:09:52 by abouhlel         ###   ########.fr       */
+/*   Created: 2022/03/25 12:59:46 by abouhlel          #+#    #+#             */
+/*   Updated: 2022/03/25 16:58:10 by abouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
-#include "WrongAnimal.hpp"
-#include "Cat.hpp"
-#include "WrongCat.hpp"
-#include "Dog.hpp"
+#pragma once
+#include <iostream>
 
-int main(void)
+class Brain
 {
-    const Animal* j = new Dog();
-    const Animal* i = new Cat();
-    delete j;
-    delete i;
-    
-    // Cat souma;
-    // {
-    //     Cat tmp = souma;
-    // }
-    
-    return (0);
-}
+    public:
+        Brain(void);
+        ~Brain(void);
+        Brain(const Brain &cpy);
+
+        Brain           &operator = (Brain const& eq);
+        std::string     *get_ideas(void) const;
+        
+    protected:
+        std::string  *_ideas;
+};

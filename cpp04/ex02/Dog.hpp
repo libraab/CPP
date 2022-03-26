@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abouhlel <abouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/24 12:15:08 by abouhlel          #+#    #+#             */
-/*   Updated: 2022/03/26 10:09:52 by abouhlel         ###   ########.fr       */
+/*   Created: 2022/03/24 13:46:41 by abouhlel          #+#    #+#             */
+/*   Updated: 2022/03/26 09:51:39 by abouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
 #include "Animal.hpp"
-#include "WrongAnimal.hpp"
-#include "Cat.hpp"
-#include "WrongCat.hpp"
-#include "Dog.hpp"
+#include "Brain.hpp"
+#include <iostream>
 
-int main(void)
+class Dog : public Animal
 {
-    const Animal* j = new Dog();
-    const Animal* i = new Cat();
-    delete j;
-    delete i;
-    
-    // Cat souma;
-    // {
-    //     Cat tmp = souma;
-    // }
-    
-    return (0);
-}
+    public:
+        Dog(void); 
+        virtual ~Dog(void);  
+        Dog(const Dog &cpy); 
+        
+        void makeSound() const;
+        Dog    &operator = (const Dog &eq);
+        
+    private:
+        Brain brain;
+};
+

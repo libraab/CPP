@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abouhlel <abouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/24 12:15:08 by abouhlel          #+#    #+#             */
-/*   Updated: 2022/03/26 10:09:52 by abouhlel         ###   ########.fr       */
+/*   Created: 2022/03/24 12:16:12 by abouhlel          #+#    #+#             */
+/*   Updated: 2022/03/26 10:11:13 by abouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
-#include "WrongAnimal.hpp"
-#include "Cat.hpp"
-#include "WrongCat.hpp"
-#include "Dog.hpp"
+#pragma once
+#include <iostream>
 
-int main(void)
+class Animal
 {
-    const Animal* j = new Dog();
-    const Animal* i = new Cat();
-    delete j;
-    delete i;
+    public:
+        Animal(void);
+        virtual ~Animal(void) = 0;
+        // ~Animal(void);
+        
+        virtual void        makeSound() const  = 0;
+        // virtual void        makeSound() const;
+        
+        std::string const   getType() const;
     
-    // Cat souma;
-    // {
-    //     Cat tmp = souma;
-    // }
-    
-    return (0);
-}
+    protected:
+        std::string type;
+};
