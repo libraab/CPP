@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   animal.cpp                                         :+:      :+:    :+:   */
+/*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abouhlel <abouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 12:53:50 by abouhlel          #+#    #+#             */
-/*   Updated: 2022/03/25 11:16:52 by abouhlel         ###   ########.fr       */
+/*   Updated: 2022/03/26 09:54:07 by abouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 //************************************************************
     Animal::Animal(void)
     {
-        std::cout << "Animal constructor called" << std::endl;
+        std::cout << "Animal default constructor called" << std::endl;
         this->type = "Unspecified";
         return;
     }

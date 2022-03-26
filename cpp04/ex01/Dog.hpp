@@ -6,7 +6,7 @@
 /*   By: abouhlel <abouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 13:46:41 by abouhlel          #+#    #+#             */
-/*   Updated: 2022/03/25 17:04:17 by abouhlel         ###   ########.fr       */
+/*   Updated: 2022/03/26 09:51:39 by abouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,17 @@
 #include "Brain.hpp"
 #include <iostream>
 
-class Dog : virtual public Animal
+class Dog : public Animal
 {
     public:
-        Dog(void);  
+        Dog(void); 
         virtual ~Dog(void);  
+        Dog(const Dog &cpy); 
         
         void makeSound() const;
+        Dog    &operator = (const Dog &eq);
         
     private:
-        Brain *brain;
+        Brain brain;
 };
+
