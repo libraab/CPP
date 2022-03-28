@@ -6,7 +6,7 @@
 /*   By: abouhlel <abouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 16:10:24 by abouhlel          #+#    #+#             */
-/*   Updated: 2022/03/28 11:30:02 by abouhlel         ###   ########.fr       */
+/*   Updated: 2022/03/28 12:03:06 by abouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void test5()
 	try
 	{
 		Bureaucrat sean(1, "Sean Paul");
-		sean.upGrade();
+		sean.upgrade();
 		std::cout << sean << std::endl;
 	}
 	catch (std::exception & e)

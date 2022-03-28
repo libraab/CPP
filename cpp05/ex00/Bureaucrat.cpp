@@ -6,7 +6,7 @@
 /*   By: abouhlel <abouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 16:10:39 by abouhlel          #+#    #+#             */
-/*   Updated: 2022/03/28 10:57:15 by abouhlel         ###   ########.fr       */
+/*   Updated: 2022/03/28 14:52:02 by abouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,67 @@
 //************************************************************
 //      C O N S T R U C T O R *** D E S T R U C T O R       //
 //************************************************************
-Bureaucrat::Bureaucrat(void) 
+Bureaucrat::Bureaucrat(std::string const name, int const grade)
 {
-    std::cout << "Default constructor called" << std::endl;
-    return;   
+   this->_name = name;
+   this->_grade = grade;
 }
 Bureaucrat::~Bureaucrat(void)
 {
     std::cout << "Default destructor called" << std::endl;
     return;   
 }
-Bureaucrat::Bureaucrat(std::string const name, int const grade)
+Bureaucrat::Bureaucrat(Bureaucrat const &cpy) 
 {
-   this->_name = name;
-   this->_grade = grade;
+    *this = cpy; 
+    return;   
 }
+
 //************************************************************
 //                      F U N C T I O N                     //
 //************************************************************
+std::string   Bureaucrat::getName() const
+{
+    return (this->_name) ;
+}
+int           Bureaucrat::getGrade()
+{
+    return (this->_grade) ;
+}
+void          Bureaucrat::upgrade()
+{
+    this->_grade--;
+}
+void          Bureaucrat::downgrade()
+{
+    this->_grade++;
+}
+
+//************************************************************
+//                      O P E R A T O R                     //
+//************************************************************
+std::ostream &operator <<(std::ostream &stream, const Bureaucrat &stream_output)
+{
+    stream << stream_output.getName() << " , bureaucrat grade " << stream_output.getGrade();
+}
+Bureaucrat    &Bureaucrat::operator = (Bureaucrat const &eq)
+{
+    if (this != &eq)
+    {
+        this->_name = eq.getName();
+        this->_grade = eq.getGrade();
+    }
+    return *this;
+}
+
+//************************************************************
+//                    E X C E P T I O N S                   //
+//************************************************************
+const char *Bureaucrat::GradeTooHighException::what() const throw () 
+{
+    return ("The grade is too high");
+}
+const char *Bureaucrat::GradeTooLowException::what() const throw () 
+{
+    return ("The grade is too low");
+}
