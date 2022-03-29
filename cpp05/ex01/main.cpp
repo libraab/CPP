@@ -6,7 +6,7 @@
 /*   By: abouhlel <abouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 16:10:24 by abouhlel          #+#    #+#             */
-/*   Updated: 2022/03/29 15:31:07 by abouhlel         ###   ########.fr       */
+/*   Updated: 2022/03/29 16:15:12 by abouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void test1()
 {
 	try
 	{
-		Form	F1("morgage", 50, 20);
+		Form	F1("morgage.", 50, 20);
 		Bureaucrat souma("Asma", 1);
 		souma.signForm(F1);
 		std::cout << souma << std::endl;
@@ -32,7 +32,7 @@ void test2()
 {
 	try
 	{
-		Form	F2("credit", 10, 20);
+		Form	F2("credit.", 10, 20);
 		Bureaucrat dex("Maher", 3);
 		dex.signForm(F2);
 		std::cout << dex << std::endl;
@@ -47,7 +47,7 @@ void test3()
 {
 	try
 	{
-		Form	F1("war_decralaration", 1, 1);
+		Form	F1("war decralaration.", 1, 1);
 		Bureaucrat hoo("Houssem", 150);
 		hoo.signForm(F1);
 		std::cout << hoo << std::endl;
