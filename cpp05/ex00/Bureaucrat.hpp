@@ -6,7 +6,7 @@
 /*   By: abouhlel <abouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 16:10:48 by abouhlel          #+#    #+#             */
-/*   Updated: 2022/03/28 12:22:56 by abouhlel         ###   ########.fr       */
+/*   Updated: 2022/03/29 10:12:44 by abouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ class Bureaucrat
         ~Bureaucrat(void);
         Bureaucrat(Bureaucrat const &cpy);
         
-        Bureaucrat    &Bureaucrat::operator = (Bureaucrat const &eq);
+        Bureaucrat          &operator = (Bureaucrat const &eq);
         
-        std::string         getName(void) const;
-        int                 getGrade();
+        std::string         getName() const;
+        int                 getGrade()const;
         void                upgrade();
         void                downgrade();
         
@@ -42,8 +42,8 @@ class Bureaucrat
         };
         
     private:
-        std::string const      _name;
-        int _grade; // 1 is the highest and 150 is le the lowest
+        std::string const       _name;
+        int                     _grade; // 1 is the highest and 150 is le the lowest
 };
 
-std::ostream &operator <<(std::ostream &stream, const Bureaucrat &stream_output)
+std::ostream &operator <<(std::ostream &stream, const Bureaucrat &stream_output);
