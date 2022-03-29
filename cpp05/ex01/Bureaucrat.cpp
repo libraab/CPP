@@ -6,7 +6,7 @@
 /*   By: abouhlel <abouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 16:10:39 by abouhlel          #+#    #+#             */
-/*   Updated: 2022/03/29 15:20:36 by abouhlel         ###   ########.fr       */
+/*   Updated: 2022/03/29 15:34:27 by abouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void		Bureaucrat::signForm(const Form &myform)
 	std::cout << this->get_bureaucrat_name();
 	if (myform.get_form_signing_grade() >= this->get_bureaucrat_grade())
 	{
-		std::cout << " signed the form 📜 🖊 ";
+		std::cout << " signed the form 📜 🖊  ";
 		std::cout << myform.get_form_name();
 	}
 	else
@@ -89,6 +89,7 @@ void		Bureaucrat::signForm(const Form &myform)
 //*****************************************************************************
 std::ostream &operator <<(std::ostream &stream, const Bureaucrat &stream_output)
 {
+	std::cout << std::endl;
 	stream << stream_output.get_bureaucrat_name() << ", bureaucrat grade " << stream_output.get_bureaucrat_grade();
 	return (stream);
 }

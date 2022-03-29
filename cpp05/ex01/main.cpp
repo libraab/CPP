@@ -6,18 +6,20 @@
 /*   By: abouhlel <abouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 16:10:24 by abouhlel          #+#    #+#             */
-/*   Updated: 2022/03/29 15:22:50 by abouhlel         ###   ########.fr       */
+/*   Updated: 2022/03/29 15:31:07 by abouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 void test1()
 {
 	try
 	{
+		Form	F1("morgage", 50, 20);
 		Bureaucrat souma("Asma", 1);
-		souma.signForm();
+		souma.signForm(F1);
 		std::cout << souma << std::endl;
 	}
 	catch (std::exception & e)
@@ -30,7 +32,9 @@ void test2()
 {
 	try
 	{
+		Form	F2("credit", 10, 20);
 		Bureaucrat dex("Maher", 3);
+		dex.signForm(F2);
 		std::cout << dex << std::endl;
 	}
 	catch (std::exception & e)
@@ -43,37 +47,10 @@ void test3()
 {
 	try
 	{
+		Form	F1("war_decralaration", 1, 1);
 		Bureaucrat hoo("Houssem", 150);
-		hoo.downgrade();
+		hoo.signForm(F1);
 		std::cout << hoo << std::endl;
-	}
-	catch (std::exception & e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-}
-//----------------------------------------------------------------
-void test4()
-{
-	try
-	{
-		Bureaucrat mimo("Mohamed", 100);
-		mimo.downgrade();
-		std::cout << mimo << std::endl;
-	}
-	catch (std::exception & e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-}
-//----------------------------------------------------------------
-void test5()
-{
-	try
-	{
-		Bureaucrat hosni("Hosny", 0);
-		hosni.upgrade();
-		std::cout << hosni << std::endl;
 	}
 	catch (std::exception & e)
 	{
@@ -96,14 +73,5 @@ int main(void)
 	std::cout << "    TEST 3" << std::endl;
 	std::cout << "➖➖➖➖➖➖➖➖" << std::endl;
 	test3();
-	std::cout << "➖➖➖➖➖➖➖➖" << std::endl;
-	std::cout << "    TEST 4" << std::endl;
-	std::cout << "➖➖➖➖➖➖➖➖" << std::endl;
-	test4();
-	std::cout << "➖➖➖➖➖➖➖➖" << std::endl;
-	std::cout << "    TEST 5" << std::endl;
-	std::cout << "➖➖➖➖➖➖➖➖" << std::endl;
-	test5();
-	
 	return (0);
 }
