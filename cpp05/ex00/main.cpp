@@ -6,86 +6,105 @@
 /*   By: abouhlel <abouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 16:10:24 by abouhlel          #+#    #+#             */
-/*   Updated: 2022/03/28 12:03:06 by abouhlel         ###   ########.fr       */
+/*   Updated: 2022/03/29 11:19:40 by abouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-void test1() 
+void test1()
 {
 	try
 	{
-		//do something here
-		if(/* error*/)
-		{
-			throw std::exception();
-		}
-		else
-		{
-			//do something here
-		}
-	}
-	catch (std::exception e)
-	{
-		//handling the error
-	}
-}
-void test2()
-{
-	//do something here 
-	if (/* error*/)
-	{
-		throw std::exception();
-	}
-	else
-	{
-		//do something here
-	}
-}
-
-void test3()
-{
-	try
-	{
-		test2();
-	}
-	catch(std::exception& e)
-	{
-		//handling error here 
-	}
-	
-}
-
-void test4()
-{
-	class PEBKACException : public std::Exception
-	{
-		public:
-			virtual const char * whate() const throw()
-	}
-}
-
-void test5()
-{
-	try
-	{
-		Bureaucrat sean(1, "Sean Paul");
-		sean.upgrade();
-		std::cout << sean << std::endl;
+		Bureaucrat souma("Asma", 1);
+		souma.upgrade();
+		std::cout << souma << std::endl;
 	}
 	catch (std::exception & e)
 	{
 		std::cout << e.what() << std::endl;
 	}
 }
+//----------------------------------------------------------------
+void test2()
+{
+	try
+	{
+		Bureaucrat dex("Maher", 3);
+		dex.upgrade();
+		std::cout << dex << std::endl;
+	}
+	catch (std::exception & e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+}
+//----------------------------------------------------------------
+void test3()
+{
+	try
+	{
+		Bureaucrat hoo("Houssem", 150);
+		hoo.downgrade();
+		std::cout << hoo << std::endl;
+	}
+	catch (std::exception & e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+}
+//----------------------------------------------------------------
+void test4()
+{
+	try
+	{
+		Bureaucrat mimo("Mohamed", 100);
+		mimo.downgrade();
+		std::cout << mimo << std::endl;
+	}
+	catch (std::exception & e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+}
+//----------------------------------------------------------------
+void test5()
+{
+	try
+	{
+		Bureaucrat hosni("Hosny", 0);
+		hosni.upgrade();
+		std::cout << hosni << std::endl;
+	}
+	catch (std::exception & e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+}
+//----------------------------------------------------------------
 
 int main(void)
 {
+	std::cout << "➖➖➖➖➖➖➖➖" << std::endl;
+	std::cout << "    TEST 1" << std::endl;
+	std::cout << "➖➖➖➖➖➖➖➖" << std::endl;
 	test1();
+	std::cout << "➖➖➖➖➖➖➖➖" << std::endl;
+	std::cout << "    TEST 2" << std::endl;
+	std::cout << "➖➖➖➖➖➖➖➖" << std::endl;
 	test2();
+	std::cout << "➖➖➖➖➖➖➖➖" << std::endl;
+	std::cout << "    TEST 3" << std::endl;
+	std::cout << "➖➖➖➖➖➖➖➖" << std::endl;
 	test3();
+	std::cout << "➖➖➖➖➖➖➖➖" << std::endl;
+	std::cout << "    TEST 4" << std::endl;
+	std::cout << "➖➖➖➖➖➖➖➖" << std::endl;
 	test4();
+	std::cout << "➖➖➖➖➖➖➖➖" << std::endl;
+	std::cout << "    TEST 5" << std::endl;
+	std::cout << "➖➖➖➖➖➖➖➖" << std::endl;
 	test5();
+	
 	return (0);
 }

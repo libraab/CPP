@@ -6,7 +6,7 @@
 /*   By: abouhlel <abouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 16:10:48 by abouhlel          #+#    #+#             */
-/*   Updated: 2022/03/29 10:12:44 by abouhlel         ###   ########.fr       */
+/*   Updated: 2022/03/29 10:35:22 by abouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class Bureaucrat
         
         Bureaucrat          &operator = (Bureaucrat const &eq);
         
-        std::string         getName() const;
+        std::string        getName() const;
         int                 getGrade()const;
         void                upgrade();
         void                downgrade();
