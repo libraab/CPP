@@ -6,7 +6,7 @@
 /*   By: abouhlel <abouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 16:10:24 by abouhlel          #+#    #+#             */
-/*   Updated: 2022/03/29 11:19:40 by abouhlel         ###   ########.fr       */
+/*   Updated: 2022/03/29 15:22:50 by abouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void test1()
 	try
 	{
 		Bureaucrat souma("Asma", 1);
-		souma.upgrade();
+		souma.signForm();
 		std::cout << souma << std::endl;
 	}
 	catch (std::exception & e)
@@ -31,7 +31,6 @@ void test2()
 	try
 	{
 		Bureaucrat dex("Maher", 3);
-		dex.upgrade();
 		std::cout << dex << std::endl;
 	}
 	catch (std::exception & e)

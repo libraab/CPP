@@ -6,7 +6,7 @@
 #    By: abouhlel <abouhlel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/15 12:12:15 by abouhlel          #+#    #+#              #
-#    Updated: 2022/03/29 10:51:02 by abouhlel         ###   ########.fr        #
+#    Updated: 2022/03/29 15:20:53 by abouhlel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,8 @@ NAME =		myBureaucrat
 # ╚═╝         ╚═╝    ╚══════╝    ╚══════╝    ╚══════╝  #
 #➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖ #
 SRCS		= main.cpp \
-			  Bureaucrat.cpp
+			  Bureaucrat.cpp \
+			  Form.cpp
 	
 				  
 OBJ			= ${SRCS:.cpp=.o}

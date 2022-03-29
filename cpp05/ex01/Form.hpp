@@ -6,7 +6,7 @@
 /*   By: abouhlel <abouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/29 11:21:41 by abouhlel          #+#    #+#             */
-/*   Updated: 2022/03/29 14:44:50 by abouhlel         ###   ########.fr       */
+/*   Updated: 2022/03/29 15:20:17 by abouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 #include <iostream>
 #include <stdexcept>
 #include "Bureaucrat.hpp"
+
+class Bureaucrat;
 
 class Form
 {
@@ -27,6 +29,7 @@ class Form
 		void	beSigned(const Bureaucrat &person);
 
 		std::string		get_form_name() const;
+		int				get_form_signed_value() const;
 		int				get_form_executing_grade() const;
 		int				get_form_signing_grade() const;
 		
@@ -44,7 +47,7 @@ class Form
 
 	private:
 		const std::string	_name;
-		bool				_signed;
+		bool				_signed_value;
 		const int 			_signing_grade;
 		const int 			_executing_grade;
 };
