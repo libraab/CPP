@@ -6,7 +6,7 @@
 /*   By: abouhlel <abouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/29 11:21:41 by abouhlel          #+#    #+#             */
-/*   Updated: 2022/03/31 10:14:00 by abouhlel         ###   ########.fr       */
+/*   Updated: 2022/03/31 14:31:25 by abouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,13 @@ class Form
 {
 	public:
 		Form(std::string const name, const int grade1, const int grade2);
-		virtual ~Form(void);
 		Form(const Form &cpy);
+		virtual ~Form(void);
 		
         Form	&operator = (Form const &eq);
-		void	beSigned(const Bureaucrat &person);
+		
+		void			beSigned(const Bureaucrat &person);
+		virtual void 	execute(Bureaucrat const & executor) const = 0;
 
 		std::string		get_form_name() const;
 		int				get_form_signed_value() const;
@@ -52,4 +54,4 @@ class Form
 		const int 			_executing_grade;
 };
 
-std::ostream &operator << (std::ostream lhs, const Form rhs);
+std::ostream &operator << (std::ostream stream, const Form stream_output);

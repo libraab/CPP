@@ -6,7 +6,7 @@
 /*   By: abouhlel <abouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 09:58:15 by abouhlel          #+#    #+#             */
-/*   Updated: 2022/03/31 10:15:59 by abouhlel         ###   ########.fr       */
+/*   Updated: 2022/03/31 14:30:21 by abouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,23 +18,18 @@
 # include <cstdlib>
 # include <string>
 
-class	RobotomyRequestForm : public Form
+class	ShrubberyCreationForm : public Form
 {
 	public:
+		ShrubberyCreationForm(std::string const name);
+		ShrubberyCreationForm(ShrubberyCreationForm const &cpy);
+		virtual	~ShrubberyCreationForm(void);
 
-		RobotomyRequestForm(std::string const &target);
-		RobotomyRequestForm(RobotomyRequestForm &cpy);
-		virtual	~RobotomyRequestForm(void);
+		ShrubberyCreationForm	    &operator = (ShrubberyCreationForm const &eq);
 
-		RobotomyRequestForm	    &operator = (RobotomyRequestForm const &eq);
-
-		std::string const	&getTarget(void) const;
+		void execute(Bureaucrat const &executor) const;
 
 	private:
-
-		virtual void	beExecuted(void) const;
-
-		RobotomyRequestForm(void);
 
 		std::string	_target;
 };

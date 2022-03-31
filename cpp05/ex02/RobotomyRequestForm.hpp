@@ -6,7 +6,7 @@
 /*   By: abouhlel <abouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 09:59:01 by abouhlel          #+#    #+#             */
-/*   Updated: 2022/03/31 10:16:17 by abouhlel         ###   ########.fr       */
+/*   Updated: 2022/03/31 14:25:20 by abouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,20 +21,14 @@
 class	RobotomyRequestForm : public Form
 {
 	public:
-
-		RobotomyRequestForm(std::string const &target);
-		RobotomyRequestForm(RobotomyRequestForm &cpy);
+		RobotomyRequestForm(std::string const name);
+		RobotomyRequestForm(RobotomyRequestForm const &cpy);
 		virtual	~RobotomyRequestForm(void);
 
-		RobotomyRequestForm     &operator = (RobotomyRequestForm const &eq);
+		RobotomyRequestForm & operator = (RobotomyRequestForm const &eq);
 
-		std::string const	&getTarget(void) const;
+		void execute(Bureaucrat const &executor) const;
 
 	private:
-
-		virtual void	beExecuted(void) const;
-
-		RobotomyRequestForm(void);
-
 		std::string	_target;
 };

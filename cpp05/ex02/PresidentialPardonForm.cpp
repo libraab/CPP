@@ -6,7 +6,7 @@
 /*   By: abouhlel <abouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 09:59:58 by abouhlel          #+#    #+#             */
-/*   Updated: 2022/03/31 10:51:58 by abouhlel         ###   ########.fr       */
+/*   Updated: 2022/03/31 14:26:12 by abouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,56 +15,43 @@
 //*****************************************************************************
 //     			 C O N S T R U C T O R *** D E S T R U C T O R   		     //
 //*****************************************************************************
-PresidentialPardonForm::PresidentialPardonForm(void) : _target("")
-{
-	std::cout << "PresidentialPardonForm default constructor called" << std::endl;
-
-
-	return ;
-}
-
-PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm &cpy) : _target("")
-{
-	std::cout << "PresidentialPardonForm copy constructor called" << std::endl;
-
-	*this = cpy;
-
-	return ;
-}
-
-PresidentialPardonForm::~PresidentialPardonForm(void)
-{
-	std::cout << "PresidentialPardonForm destructor called" << std::endl;
-
-	return ;
-}
-
-PresidentialPardonForm	&PresidentialPardonForm::operator = (PresidentialPardonForm const &eq) 
-{
-	std::cout << "PresidentialPardonForm copy assignment operator called" << std::endl;
-
-	if (this != &eq)
+	PresidentialPardonForm::PresidentialPardonForm(std::string const name): Form("PresidentialPardonForm", 25, 5)
 	{
-		this->_target = rhs.getTarget(); 
+		this->_target = name;
+		return ;
 	}
 
-	return (*this);	
-}
+	PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const &cpy): Form("PresidentialPardonForm", 25, 5)
+	{
+		*this = cpy;
+		return ;
+	}
 
-PresidentialPardonForm::PresidentialPardonForm(std::string const & target) : _target(target)
-{
-	std::cout << "PresidentialPardonForm string constructor called" << std::endl;
+	PresidentialPardonForm::~PresidentialPardonForm(void)
+	{
+		return ;
+	}
 
+//*****************************************************************************
+// 		                     F U N C T I O N                    			 //
+//*****************************************************************************
+	void PresidentialPardonForm::execute(Bureaucrat const &executor) const
+	{
+		if (!this->get_form_signed_value())
+			throw Form::GradeTooLowException();
+		else if (this->get_form_signing_grade() < executor.get_bureaucrat_grade())
+			throw Form::GradeTooLowException();
+		else
+			std::cout << this->_target << " was forgiven by Zaphod Beeblebrox." << std::endl;
+		return ;
+	}
 
-	return ;
-}
-
-std::string const	&PresidentialPardonForm::getTarget(void) const
-{
-	return (this->_target);
-}
-
-void	PresidentialPardonForm::beExecuted(void) const
-{
-	std::cout << this->_target << " has been pardoned by Zaphod Beeblebrox" << std::endl;
-}
+//*****************************************************************************
+// 		                     O P E R A T O R S                   			 //
+//*****************************************************************************
+	PresidentialPardonForm & PresidentialPardonForm::operator = (PresidentialPardonForm const & rhs)
+	{
+		if (this != &rhs)
+			this->_target = rhs._target;
+		return (*this);
+	}
