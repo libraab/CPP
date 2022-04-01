@@ -6,7 +6,7 @@
 /*   By: abouhlel <abouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 16:10:39 by abouhlel          #+#    #+#             */
-/*   Updated: 2022/03/31 11:07:53 by abouhlel         ###   ########.fr       */
+/*   Updated: 2022/04/01 16:55:06 by abouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,39 +51,37 @@
 	{
 		return (this->_grade) ;
 	}
-	void		Bureaucrat::upgrade()
-	{
-		this->_grade--;
-		if (this->_grade < 1)
-		{
-			std::cout << "❌ CANNOT PROMOTE 🎖" << std::endl;
-			throw Bureaucrat::GradeTooHighException();
-		}
-	}
-	void		Bureaucrat::downgrade()
-	{
-		this->_grade++;
-		if (this->_grade > 150)
-		{
-			std::cout <<  "❌ CANNOT DEMOTE 👞" << std::endl;
-			throw Bureaucrat::GradeTooLowException();
-		}
-	}
-	void		Bureaucrat::signForm(const Form &myform)
+	
+	//*************************************************************************
+	void		Bureaucrat::sign_form(const Form &myform)
 	{
 		std::cout << this->get_bureaucrat_name();
-		if (myform.get_form_signing_grade() >= this->get_bureaucrat_grade())
+		
+		if (this->get_bureaucrat_grade() <= myform.get_form_signing_grade())
 		{
-			std::cout << " signed the form 📜 🖊  ";
-			std::cout << myform.get_form_name();
+			std::cout << " signed the form 📜 🖊  " << myform.get_form_name() << "." << std::endl;
+			std::cout << "This form require a signature grade of " << myform.get_form_signing_grade() << " at the lowest." << std::endl;
 		}
 		else
-		{
-			std::cout << " 🚫 is unqualified to sign the form ";
-			std::cout << myform.get_form_name();
-		}
-	}
+			std::cout << " 🚫 is unqualified to sign the form " << myform.get_form_name() << std::endl;
 
+		return;
+	}
+	void		Bureaucrat::executeForm(const Form &myform)
+	{
+		std::cout << this->get_bureaucrat_name();
+		
+		if (this->get_bureaucrat_grade() <= myform.get_form_executing_grade())
+		{
+			std::cout << " executed the form ✅  " << myform.get_form_name() << "." << std::endl;
+			std::cout << "This form require an executing grade of " << myform.get_form_executing_grade() << " at the lowest." << std::endl;
+			myform.execute(*this);
+		}
+		else
+			std::cout << " 🚫 is unqualified to execute the form " << myform.get_form_name();
+			
+		return;
+	}
 //*****************************************************************************
 // 		                     O P E R A T O R S                   			//
 //*****************************************************************************

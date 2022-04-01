@@ -6,7 +6,7 @@
 /*   By: abouhlel <abouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/29 11:21:41 by abouhlel          #+#    #+#             */
-/*   Updated: 2022/03/31 14:31:25 by abouhlel         ###   ########.fr       */
+/*   Updated: 2022/04/01 14:41:18 by abouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,11 @@ class Form
             public: 
                 const char * what() const throw ();
         };
+		class not_signed: public std::exception
+        {
+            public: 
+                const char * what() const throw ();
+        };
 
 	private:
 		const std::string	_name;
@@ -54,4 +59,4 @@ class Form
 		const int 			_executing_grade;
 };
 
-std::ostream &operator << (std::ostream stream, const Form stream_output);
+std::ostream &operator << (std::ostream &stream, const Form &stream_output);

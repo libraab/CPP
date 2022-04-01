@@ -6,7 +6,7 @@
 /*   By: abouhlel <abouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/29 11:21:51 by abouhlel          #+#    #+#             */
-/*   Updated: 2022/03/31 13:08:24 by abouhlel         ###   ########.fr       */
+/*   Updated: 2022/04/01 15:34:35 by abouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 //*****************************************************************************
 //     			 C O N S T R U C T O R *** D E S T R U C T O R   		     //
 //*****************************************************************************
-Form::Form(std::string const name, int const grade1, int const grade2) : _name(name), _signing_grade(grade2), _executing_grade(grade1)
+Form::Form(std::string const name, int const grade1, int const grade2) : _name(name), _signing_grade(grade1), _executing_grade(grade2)
 {
 	this->_signed_value = 0;
 	if (_executing_grade < 1 || _signing_grade < 1)
@@ -75,21 +75,21 @@ std::ostream &operator <<(std::ostream &stream, const Form &stream_output)
 {
 	stream << stream_output.get_form_name();
 	if (stream_output.get_form_signed_value() == 1)
-		std::cout << " ----> signed" << std::endl;
+		stream << " ----> signed";
 	else
-		std::cout << " ----> not signed" << std::endl;
+		stream << " ----> not signed";
 	return (stream);
 }
-Form    &Form::operator = (Form const &eq)
+Form    &Form::operator = (const Form &eq)
 {
 	if (this != &eq)
 	{
-		// this->_name    = eq.get_form_name();
+		// this->_name    				= eq.get_form_name();
 		// this->_executing_grade      = eq.get_form_executing_rade();
 		// this->_signing_grade        = eq.get_form_signing_rade();
 		this->_signed_value			= eq.get_form_signed_value();
 	}
-	return *this;
+	return (*this);
 }
 
 //*****************************************************************************
@@ -102,4 +102,8 @@ const char *Form::GradeTooHighException::what() const throw ()
 const char *Form::GradeTooLowException::what() const throw () 
 {
 	return ("The grade is too low");
+}
+const char *Form::not_signed::what() const throw () 
+{
+	return ("The form is not signed");
 }

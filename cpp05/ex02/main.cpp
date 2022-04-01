@@ -6,56 +6,106 @@
 /*   By: abouhlel <abouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 16:10:24 by abouhlel          #+#    #+#             */
-/*   Updated: 2022/03/29 16:15:12 by abouhlel         ###   ########.fr       */
+/*   Updated: 2022/04/01 17:14:47 by abouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "PresidentialPardonForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 
 void test1()
 {
+	Form *F1 = new PresidentialPardonForm("F1");
 	try
 	{
-		Form	F1("morgage.", 50, 20);
-		Bureaucrat souma("Asma", 1);
-		souma.signForm(F1);
-		std::cout << souma << std::endl;
+		Bureaucrat loola("Asma", 1);
+		std::cout << loola << std::endl;
+		try
+		{
+			loola.sign_form(*F1);
+		}
+		catch (std::exception & e)
+		{
+			std::cout << e.what() << std::endl;
+		}
+		try
+		{
+			loola.executeForm(*F1);
+		}
+		catch (std::exception & e)
+		{
+			std::cout << e.what() << std::endl;
+		}
 	}
-	catch (std::exception & e)
+	catch(const std::exception& e)
 	{
-		std::cout << e.what() << std::endl;
+		std::cerr << e.what() << std::endl;
 	}
 }
 //----------------------------------------------------------------
 void test2()
 {
+	Form *F2 = new RobotomyRequestForm("F2");
 	try
 	{
-		Form	F2("credit.", 10, 20);
-		Bureaucrat dex("Maher", 3);
-		dex.signForm(F2);
+		Bureaucrat dex("Maher", 30);
 		std::cout << dex << std::endl;
+		try
+		{
+			dex.sign_form(*F2);
+		}
+		catch (std::exception & e)
+		{
+			std::cout << e.what() << std::endl;
+		}
+		try
+		{
+			dex.executeForm(*F2);
+		}
+		catch (std::exception & e)
+		{
+			std::cout << e.what() << std::endl;
+		}
 	}
-	catch (std::exception & e)
+	catch(const std::exception& e)
 	{
-		std::cout << e.what() << std::endl;
+		std::cerr << e.what() << std::endl;
 	}
 }
 //----------------------------------------------------------------
 void test3()
 {
+	Form *F3 = new ShrubberyCreationForm("F3");
 	try
 	{
-		Form	F1("war decralaration.", 1, 1);
-		Bureaucrat hoo("Houssem", 150);
-		hoo.signForm(F1);
+		Bureaucrat hoo("Houssem", 145);
 		std::cout << hoo << std::endl;
+		try
+		{
+			hoo.sign_form(*F3);
+		}
+		catch (std::exception & e)
+		{
+			std::cout << e.what() << std::endl;
+		}
+		try
+		{
+			hoo.executeForm(*F3);
+		}
+		catch (std::exception & e)
+		{
+			std::cout << e.what() << std::endl;
+		}
 	}
-	catch (std::exception & e)
+	catch(const std::exception& e)
 	{
-		std::cout << e.what() << std::endl;
+		std::cerr << e.what() << std::endl;
 	}
+	
+	
 }
 //----------------------------------------------------------------
 
@@ -65,10 +115,12 @@ int main(void)
 	std::cout << "    TEST 1" << std::endl;
 	std::cout << "➖➖➖➖➖➖➖➖" << std::endl;
 	test1();
+	std::cout << std::endl;
 	std::cout << "➖➖➖➖➖➖➖➖" << std::endl;
 	std::cout << "    TEST 2" << std::endl;
 	std::cout << "➖➖➖➖➖➖➖➖" << std::endl;
 	test2();
+	std::cout << std::endl;
 	std::cout << "➖➖➖➖➖➖➖➖" << std::endl;
 	std::cout << "    TEST 3" << std::endl;
 	std::cout << "➖➖➖➖➖➖➖➖" << std::endl;

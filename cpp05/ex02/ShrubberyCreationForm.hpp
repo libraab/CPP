@@ -6,7 +6,7 @@
 /*   By: abouhlel <abouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 09:58:15 by abouhlel          #+#    #+#             */
-/*   Updated: 2022/03/31 14:30:21 by abouhlel         ###   ########.fr       */
+/*   Updated: 2022/04/01 16:05:05 by abouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,17 @@
 # include <iostream>
 # include <cstdlib>
 # include <string>
+#include <fstream>
 
 class	ShrubberyCreationForm : public Form
 {
 	public:
-		ShrubberyCreationForm(std::string const name);
+		ShrubberyCreationForm(std::string const target);
 		ShrubberyCreationForm(ShrubberyCreationForm const &cpy);
 		virtual	~ShrubberyCreationForm(void);
 
 		ShrubberyCreationForm	    &operator = (ShrubberyCreationForm const &eq);
-
-		void execute(Bureaucrat const &executor) const;
+		void 						execute(Bureaucrat const &executor) const;
 
 	private:
 

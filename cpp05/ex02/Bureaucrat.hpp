@@ -6,7 +6,7 @@
 /*   By: abouhlel <abouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 16:10:48 by abouhlel          #+#    #+#             */
-/*   Updated: 2022/03/31 10:51:30 by abouhlel         ###   ########.fr       */
+/*   Updated: 2022/04/01 15:27:17 by abouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ class Bureaucrat
 		
 		std::string			get_bureaucrat_name() const;
 		int          		get_bureaucrat_grade()const;
-		void                upgrade();
-		void                downgrade();
-		void				signForm(const Form &myform);
+		
+		void				sign_form(const Form &myform);
+		void				executeForm(const Form &myform);
 		
 		class GradeTooHighException: public std::exception
 		{
