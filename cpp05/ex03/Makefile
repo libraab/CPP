@@ -6,11 +6,11 @@
 #    By: abouhlel <abouhlel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/15 12:12:15 by abouhlel          #+#    #+#              #
-#    Updated: 2022/03/31 15:56:49 by abouhlel         ###   ########.fr        #
+#    Updated: 2022/04/05 11:02:27 by abouhlel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME =		forms	
+NAME =		Intern	
 #➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖ #
 # ███████╗    ██╗    ██╗         ███████╗    ███████╗  #
 # ██╔════╝    ██║    ██║         ██╔════╝    ██╔════╝  #
@@ -24,7 +24,8 @@ SRCS		= main.cpp \
 			  Form.cpp \
 			  PresidentialPardonForm.cpp \
 			  RobotomyRequestForm.cpp \
-			  ShrubberyCreationForm.cpp
+			  ShrubberyCreationForm.cpp \
+			  Intern.cpp
 	
 				  
 OBJ			= ${SRCS:.cpp=.o}
