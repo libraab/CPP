@@ -6,7 +6,7 @@
 /*   By: abouhlel <abouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 16:10:24 by abouhlel          #+#    #+#             */
-/*   Updated: 2022/03/29 11:19:40 by abouhlel         ###   ########.fr       */
+/*   Updated: 2022/03/31 16:18:30 by abouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ void test1()
 {
 	try
 	{
-		Bureaucrat souma("Asma", 1);
-		souma.upgrade();
-		std::cout << souma << std::endl;
+		Bureaucrat loula("Asma", 1);
+		loula.upgrade();
+		std::cout << loula << std::endl;
 	}
 	catch (std::exception & e)
 	{

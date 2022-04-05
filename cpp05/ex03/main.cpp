@@ -6,7 +6,7 @@
 /*   By: abouhlel <abouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 16:10:24 by abouhlel          #+#    #+#             */
-/*   Updated: 2022/04/01 17:26:55 by abouhlel         ###   ########.fr       */
+/*   Updated: 2022/04/01 17:14:47 by abouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,26 +111,19 @@ void test3()
 
 int main(void)
 {
-	// std::cout << "➖➖➖➖➖➖➖➖" << std::endl;
-	// std::cout << "    TEST 1" << std::endl;
-	// std::cout << "➖➖➖➖➖➖➖➖" << std::endl;
-	// test1();
-	// std::cout << std::endl;
-	// std::cout << "➖➖➖➖➖➖➖➖" << std::endl;
-	// std::cout << "    TEST 2" << std::endl;
-	// std::cout << "➖➖➖➖➖➖➖➖" << std::endl;
-	// test2();
-	// std::cout << std::endl;
-	// std::cout << "➖➖➖➖➖➖➖➖" << std::endl;
-	// std::cout << "    TEST 3" << std::endl;
-	// std::cout << "➖➖➖➖➖➖➖➖" << std::endl;
-	// test3();
-
-	Form *F3 = new ShrubberyCreationForm("F3");
-	(void)F3;
-	Bureaucrat hoo("Houssem", 1);
-	hoo.sign_form(*F3);
-	hoo.executeForm(*F3);
-	
+	std::cout << "➖➖➖➖➖➖➖➖" << std::endl;
+	std::cout << "    TEST 1" << std::endl;
+	std::cout << "➖➖➖➖➖➖➖➖" << std::endl;
+	test1();
+	std::cout << std::endl;
+	std::cout << "➖➖➖➖➖➖➖➖" << std::endl;
+	std::cout << "    TEST 2" << std::endl;
+	std::cout << "➖➖➖➖➖➖➖➖" << std::endl;
+	test2();
+	std::cout << std::endl;
+	std::cout << "➖➖➖➖➖➖➖➖" << std::endl;
+	std::cout << "    TEST 3" << std::endl;
+	std::cout << "➖➖➖➖➖➖➖➖" << std::endl;
+	test3();
 	return (0);
 }

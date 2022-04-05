@@ -6,7 +6,7 @@
 /*   By: abouhlel <abouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 16:10:24 by abouhlel          #+#    #+#             */
-/*   Updated: 2022/03/29 16:15:12 by abouhlel         ###   ########.fr       */
+/*   Updated: 2022/03/31 16:18:44 by abouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ void test1()
 	try
 	{
 		Form	F1("morgage.", 50, 20);
-		Bureaucrat souma("Asma", 1);
-		souma.signForm(F1);
-		std::cout << souma << std::endl;
+		Bureaucrat loula("Asma", 1);
+		loula.signForm(F1);
+		std::cout << loula << std::endl;
 	}
 	catch (std::exception & e)
 	{
