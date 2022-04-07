@@ -16,8 +16,9 @@
 
 struct Data
 {
-	std::string str;
-	int	    x;
+	std::string x;
+	std::string y;
+	int	    z;;
 };
 
 uintptr_t serialize(Data* ptr)
@@ -41,27 +42,29 @@ int main(void)
 	uintptr_t	seralize_test		= 0;
 	Data		*deseralize_test	= NULL;
 
-	data->str = "Hello World";
-	data->x = 42;
+	data->x = "Hello";
+	data->y = "World";
+	data->z = 42;
 
-	std::cout << "➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖" << std::endl;
+	std::cout << "➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖" << std::endl;
 	std::cout << "Seralization & Deseralization test with Structure" << std::endl;
-	std::cout << "➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖" << std::endl;
 	seralize_test = serialize(data);
 	deseralize_test = deserialize(seralize_test);
 
 	std::cout << "Unintptr_ t: " << seralize_test << std::endl;
-	std::cout << "str --> ";
-	if (!deseralize_test->str.compare(data->str))
-		std::cout << "Same value ✅" << std::endl;
-	else
-		 std::cout << "Different value ⛔️" << std::endl;
 	std::cout << "x --> ";
-	if (deseralize_test->x == data->x)
-		std::cout << "Same value ✅" << std::endl;
+	if (!deseralize_test->x.compare(data->x))
+		std::cout << "Same value" << std::endl;
 	else
-		std::cout << "Differnt value ⛔️" << std::endl;
-
+		 std::cout << "Differentvalue" << std::endl;
+	std::cout << "y --> ";
+	if (!deseralize_test->y.compare(data->y))
+		std::cout << "Same value" << std::endl;
+	else
+		std::cout << "Differnt value" << std::endl;
+	
+	std::cout << "-> Using struct after:" << std::endl;
+	std::cout << "   Data: " << data->x << " - " << data->y << std::endl;
 	delete data;
 	return (0);
 }
