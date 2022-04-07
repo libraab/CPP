@@ -16,9 +16,9 @@
 
 struct Data
 {
-	std::string title;
-	std::string description;
-	int 		price;
+	std::string x;
+	std::string y;
+	int	    z;;
 };
 
 uintptr_t serialize(Data* ptr)
@@ -35,29 +35,33 @@ Data* deserialize(uintptr_t raw)
 
 int main(void)
 {
-	Data * 		announce = new Data;
-	Data * 		announce_save;
-	uintptr_t 	save;
+	Data *data	= new Data;
+	data->x 	= "Hello";
+	data->y		= "World";
+	data->z 	= 42;
 
-	announce->title 	= "I'm title";
-	announce->description 	= "I'm description";
-	announce->price 	= 50;
-	
-	save 			= serialize(announce);
-	announce_save 		= deserialize(save);
+	uintptr_t save	= serialize(data);
+	Data *data_cpy	= deserialize(save);
 
 	std::cout << "uintptr_t: " << save << std::endl;
-	std::cout << announce_save->title;
-	(!announce_save->title.compare(announce->title)) ?
-		std::cout << " ✅" << std::endl :
+	
+	std::cout << data_cpy->x;
+	if (data_cpy->x.compare(data->x) == 0)
+		std::cout << " ✅" << std::endl;
+	else
 		std::cout << " ❌" << std::endl;
-	std::cout << announce_save->description;
-	(!announce_save->description.compare(announce->description)) ?
-		std::cout << " ✅" << std::endl :
+	
+	std::cout << data_cpy->y;
+	if (data_cpy->y.compare(data->y) == 0)
+		std::cout << " ✅" << std::endl;
+	else
 		std::cout << " ❌" << std::endl;
-	std::cout << announce_save->price;
-	(announce_save->price == announce->price) ?
-		std::cout << "$ ✅" << std::endl :
-		std::cout << "$ ❌" << std::endl;
+	
+	std::cout << data_cpy->z;
+	if (data_cpy->z == data->z)
+		std::cout << "✅" << std::endl;
+	else
+		std::cout << "❌" << std::endl;
+	
 	return (0);
 }
