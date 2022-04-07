@@ -6,7 +6,7 @@
 /*   By: abouhlel <abouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 09:52:44 by abouhlel          #+#    #+#             */
-/*   Updated: 2022/04/07 13:28:30 by abouhlel         ###   ########.fr       */
+/*   Updated: 2022/04/07 13:54:20 by abouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,16 @@
         for(int i = 0; str[i + 1]; i++)
         {
             if(!std::isdigit(str[i]) && str[i] != '.')
+                return (true);
+        }
+        return (false);
+    }
+//******************************************************************************
+    bool	str_is_double(std::string const &str)
+    {
+        for(int i = 0; str[i + 1]; i++)
+        {
+            if(str[i] == '.')
                 return (true);
         }
         return (false);
@@ -47,8 +57,17 @@
         else
             std::cout << "char: " << static_cast < char > (x) << std::endl;
         std::cout << "int: " << static_cast < int > (x) << std::endl;
-        std::cout << "float: " << static_cast < float > (x) << "f" << std::endl;
-        std::cout << "double: " << static_cast < double > (x) << std::endl;
+        if (static_cast <float> (x) == static_cast <int> (x))
+        {
+            std::cout << "float: " << static_cast < float > (x) << ".0f" << std::endl;
+            std::cout << "double: " << static_cast < double > (x) << ".0" << std::endl;
+            
+        }
+        else
+        {
+            std::cout << "float: " << static_cast < float > (x) << "f" << std::endl;
+            std::cout << "double: " << static_cast < double > (x) << std::endl;    
+        }
     }
 //*******************************************************************************
 int	main(int ac, char **av)
@@ -63,7 +82,17 @@ int	main(int ac, char **av)
             print_nan();
         else
         {
-            if ()
+            if (str_is_double(av[1]))
+            {
+                if (static_cast <long double> (av[1]) > std::numeric_limits <double> ::max())
+                    
+                if (static_cast <long double> (av[1]) < std::numeric_limits <double> ::min())
+            }
+            else
+            {
+                if (static_cast <long int> (av[1]) > std::numeric_limits <int> ::max())
+                if (static_cast <long int> (av[1]) < std::numeric_limits <int> ::min())
+            }
             float x = std::atof(av[1]);
             print_nbr(x);
         }
