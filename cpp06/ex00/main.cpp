@@ -6,7 +6,7 @@
 /*   By: abouhlel <abouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 09:52:44 by abouhlel          #+#    #+#             */
-/*   Updated: 2022/04/07 13:54:20 by abouhlel         ###   ########.fr       */
+/*   Updated: 2022/04/07 14:28:24 by abouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
     {
         for(int i = 0; str[i + 1]; i++)
         {
-            if(!std::isdigit(str[i]) && str[i] != '.')
+            if(!std::isdigit(str[i]) && str[i] != '.' && str[i] != '-' && str[i] != '+')
                 return (true);
         }
         return (false);
@@ -49,29 +49,75 @@
         std::cout << "float: nanf" << std::endl;
         std::cout << "double: nan" << std::endl;
     }
-//******************************************************************************
-    void print_nbr(float x)
+//*******************************************************************************
+void    print_int_float_double(std::string const &str, double x)
+{
+    if (str_is_double(str))
     {
-        if (static_cast < int > (x) > 126 || static_cast < int > (x) < 32)
-            std::cout << "char: Non displayable" << std::endl;
-        else
-            std::cout << "char: " << static_cast < char > (x) << std::endl;
-        std::cout << "int: " << static_cast < int > (x) << std::endl;
-        if (static_cast <float> (x) == static_cast <int> (x))
+        if (x > std::numeric_limits <double> ::max())
         {
-            std::cout << "float: " << static_cast < float > (x) << ".0f" << std::endl;
-            std::cout << "double: " << static_cast < double > (x) << ".0" << std::endl;
-            
+            std::cout << "int: impossible" << std::endl;
+            std::cout << "float: +inf" << std::endl;
+            std::cout << "double: +inf" << std::endl; 
+        }
+        else if (x < std::numeric_limits <double> ::min())
+        {
+            std::cout << "int: impossible" << std::endl;
+            std::cout << "float: -inf" << std::endl;
+            std::cout << "double: -inf" << std::endl; 
         }
         else
         {
-            std::cout << "float: " << static_cast < float > (x) << "f" << std::endl;
-            std::cout << "double: " << static_cast < double > (x) << std::endl;    
+            std::cout << "int: " << static_cast < int > (x) << std::endl;
+            if (static_cast <float> (x) == static_cast <int> (x))
+            {
+                std::cout << "float: " << static_cast < float > (x) << ".0f" << std::endl;
+                std::cout << "double: " << static_cast < double > (x) << ".0" << std::endl;
+                
+            }
+            else
+            {
+                std::cout << "float: " << static_cast < float > (x) << "f" << std::endl;
+                std::cout << "double: " << static_cast < double > (x) << std::endl;    
+            }
         }
     }
+    else
+    {
+        if (x > std::numeric_limits <int> ::max())
+        {
+            std::cout << "int: impossible" << std::endl;
+            std::cout << "float: +inf" << std::endl;
+            std::cout << "double: +inf" << std::endl; 
+        }
+        else if (x < std::numeric_limits <int> ::min())
+        {
+            std::cout << "int: impossible" << std::endl;
+            std::cout << "float: -inf" << std::endl;
+            std::cout << "double: -inf" << std::endl; 
+        }
+        else
+        {
+            std::cout << "int: " << static_cast < int > (x) << std::endl;
+            if (static_cast <float> (x) == static_cast <int> (x))
+            {
+                std::cout << "float: " << static_cast < float > (x) << ".0f" << std::endl;
+                std::cout << "double: " << static_cast < double > (x) << ".0" << std::endl;
+                
+            }
+            else
+            {
+                std::cout << "float: " << static_cast < float > (x) << "f" << std::endl;
+                std::cout << "double: " << static_cast < double > (x) << std::endl;    
+            }
+        }     
+    }
+    
+}
 //*******************************************************************************
 int	main(int ac, char **av)
 {
+    long double x = 0.0;
     if (ac != 2)
 	    std::cout << "ERROR : 🚫 Wrong number of arguments" << std::endl;
 	else
@@ -82,19 +128,12 @@ int	main(int ac, char **av)
             print_nan();
         else
         {
-            if (str_is_double(av[1]))
-            {
-                if (static_cast <long double> (av[1]) > std::numeric_limits <double> ::max())
-                    
-                if (static_cast <long double> (av[1]) < std::numeric_limits <double> ::min())
-            }
-            else
-            {
-                if (static_cast <long int> (av[1]) > std::numeric_limits <int> ::max())
-                if (static_cast <long int> (av[1]) < std::numeric_limits <int> ::min())
-            }
-            float x = std::atof(av[1]);
-            print_nbr(x);
+            x = std::stold(av[1]);
+            if (static_cast < int > (x) > 126 || static_cast < int > (x) < 32)
+            std::cout << "char: Non displayable" << std::endl;
+        else
+            std::cout << "char: '" << static_cast < char > (x) << "'" << std::endl;
+            print_int_float_double(av[1], x);
         }
 	}
 	return (0);
