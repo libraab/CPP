@@ -10,31 +10,54 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <string>
 #include <iostream>
-#include <iomanip>
+#include <stdint.h>
 
-struct Data 
+struct Data
 {
-    std::string str;
-    int x;
-}
-//******************************************************************************
+	std::string title;
+	std::string description;
+	int 		price;
+};
+
 uintptr_t serialize(Data* ptr)
 {
-    uinptr_t x;
-    x = reinterpret_cast<uintptr_t>(ptr);
-    return (x);
+	uintptr_t x = reinterpret_cast <uintptr_t> (ptr);
+	return (x);
 }
-//******************************************************************************
+
 Data* deserialize(uintptr_t raw)
 {
-    Data *y;
-    y = reinterpret_cast<Data*>(raw);
-    return (y);
+	Data* y = reinterpret_cast <Data *> (raw);
+	return (y);
 }
-//******************************************************************************
+
 int main(void)
 {
-    
-    return (0);
+	Data * 		announce = new Data;
+	Data * 		announce_save;
+	uintptr_t 	save;
+
+	announce->title 	= "I'm title";
+	announce->description 	= "I'm description";
+	announce->price 	= 50;
+	
+	save 			= serialize(announce);
+	announce_save 		= deserialize(save);
+
+	std::cout << "uintptr_t: " << save << std::endl;
+	std::cout << announce_save->title;
+	(!announce_save->title.compare(announce->title)) ?
+		std::cout << " ✅" << std::endl :
+		std::cout << " ❌" << std::endl;
+	std::cout << announce_save->description;
+	(!announce_save->description.compare(announce->description)) ?
+		std::cout << " ✅" << std::endl :
+		std::cout << " ❌" << std::endl;
+	std::cout << announce_save->price;
+	(announce_save->price == announce->price) ?
+		std::cout << "$ ✅" << std::endl :
+		std::cout << "$ ❌" << std::endl;
+	return (0);
 }
