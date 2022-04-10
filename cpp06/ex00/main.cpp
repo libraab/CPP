@@ -50,17 +50,17 @@
         std::cout << "double: nan" << std::endl;
     }
 //*******************************************************************************
-void    print_int_float_double(std::string const &str, double x)
+void    print_int_float_double(std::string const &str, long double x)
 {
     if (str_is_double(str))
     {
-        if (x > std::numeric_limits <double> ::max())
+        if (x > std::numeric_limits <long double> ::max())
         {
             std::cout << "int: impossible" << std::endl;
             std::cout << "float: +inf" << std::endl;
             std::cout << "double: +inf" << std::endl; 
         }
-        else if (x < std::numeric_limits <double> ::min())
+        else if (x < std::numeric_limits <long double> ::min())
         {
             std::cout << "int: impossible" << std::endl;
             std::cout << "float: -inf" << std::endl;
@@ -118,9 +118,9 @@ void    print_int_float_double(std::string const &str, double x)
 int	main(int ac, char **av)
 {
     long double x = 0.0;
-    if (ac != 2)
+	if (ac != 2)
 	    std::cout << "ERROR : 🚫 Wrong number of arguments" << std::endl;
-	else
+    	else
 	{
 		if (((std::string)av[1]).length() == 1 && !std::isdigit((unsigned char)(av[1][0])))
             print_char(static_cast < unsigned char > (av[1][0]));
@@ -128,7 +128,7 @@ int	main(int ac, char **av)
             print_nan();
         else
         {
-            x = std::stold(av[1]);
+		x = std::stold(av[1]);
             if (static_cast < int > (x) > 126 || static_cast < int > (x) < 32)
             std::cout << "char: Non displayable" << std::endl;
         else
