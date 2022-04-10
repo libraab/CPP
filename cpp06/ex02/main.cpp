@@ -1,4 +1,10 @@
-#include "Base.hpp"
+#include <iostream>
+#include <cstdlib>
+
+class Base { public: virtual ~Base(void){} };
+class A: public Base {};
+class B: public Base {};
+class C: public Base {};
 
 Base *generate(void)
 {
@@ -15,15 +21,33 @@ Base *generate(void)
 void	identify(Base *p)
 {
 	if (dynamic_cast <A*> (p))
-		std::cout << " ---> Class A" << std::endl;
+		std::cout << "The actual type of object pointed to by p is ---> A" << std::endl;
 	else if (dynamic_cast <B*> (p))
-		std::cout << " ---> Class B" << std::endl;
+		std::cout << "The actual type of object pointed to by p is ---> B" << std::endl;
 	else if (dynamic_cast <C*> (p))
-		std::cout << " ---> Class C" << std::endl;
+		std::cout << "The actual type of object pointed to by p is ---> C" << std::endl;
 }
 
 void	identify(Base &p)
 {
+	try
+	{
+		Base test_A = dynamic_cast <A &> (p);
+		std::cout << "The actual type of object pointed to by p is ---> A" << std::endl;
+	}
+	catch (std::exception &e) {}
+	try
+	{
+		Base test_B = dynamic_cast <B &> (p);
+		std::cout << "The actual type of object pointed to by p is ---> B" << std::endl;
+	}
+	catch (std::exception &e) {}
+	try
+	{
+		Base test_C = dynamic_cast <C &> (p);
+		std::cout << "The actual type of object pointed to by p is ---> C" << std::endl;
+	}
+	catch (std::exception &e) {}
 }
 
 int main(void)
@@ -41,6 +65,6 @@ int main(void)
 	std::cout << "➖➖➖➖➖➖➖➖➖➖➖➖" << std::endl;
 	identify(p);
 
-	delete(base_test); 
+	delete(p); 
 	return (0);
 }
