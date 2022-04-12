@@ -16,9 +16,9 @@
 //******************************************************************************
     bool	str_is_nan(std::string const &str)
     {
-        for(int i = 0; str[i + 1]; i++)
+        for(int i = 0; str[i]; i++)
         {
-            if(!std::isdigit(str[i]) && str[i] != '.' && str[i] != '-' && str[i] != '+')
+            if(!std::isdigit(str[i]) && str[i] != '.' && str[i] != '-' && str[i] != '+' && str[i] != 'f')
                 return (true);
         }
         return (false);
@@ -26,7 +26,7 @@
 //******************************************************************************
     bool	str_is_double(std::string const &str)
     {
-        for(int i = 0; str[i + 1]; i++)
+        for(int i = 0; str[i]; i++)
         {
             if(str[i] == '.')
                 return (true);
@@ -37,9 +37,9 @@
     void print_char(unsigned char c)
     {
         std::cout << "char: '" << c << "'" << std::endl;
-        std::cout << "int: " << static_cast < int > (c) << std::endl;
-        std::cout << "float: " << static_cast < float > (c) << "f"  << std::endl;
-        std::cout << "double: " << static_cast < double > (c) << std::endl;
+        std::cout << "int: " << static_cast <int> (c) << std::endl;
+        std::cout << "float: " << static_cast <float> (c) << "f"  << std::endl;
+        std::cout << "double: " << static_cast <double> (c) << std::endl;
     }
 //******************************************************************************
     void print_nan(void)
@@ -50,7 +50,7 @@
         std::cout << "double: nan" << std::endl;
     }
 //*******************************************************************************
-void    print_int_float_double(std::string const &str, long double x)
+void    print_int_float_double(std::string const &str, double x)
 {
     if (str_is_double(str))
     {
@@ -68,17 +68,17 @@ void    print_int_float_double(std::string const &str, long double x)
         }
         else
         {
-            std::cout << "int: " << static_cast < int > (x) << std::endl;
+            std::cout << "int: " << static_cast <int> (x) << std::endl;
             if (static_cast <float> (x) == static_cast <int> (x))
             {
-                std::cout << "float: " << static_cast < float > (x) << ".0f" << std::endl;
-                std::cout << "double: " << static_cast < double > (x) << ".0" << std::endl;
+                std::cout << "float: " << static_cast <float> (x) << ".0f" << std::endl;
+                std::cout << "double: " << static_cast <double> (x) << ".0" << std::endl;
                 
             }
             else
             {
-                std::cout << "float: " << static_cast < float > (x) << "f" << std::endl;
-                std::cout << "double: " << static_cast < double > (x) << std::endl;    
+                std::cout << "float: " << static_cast <float> (x) << "f" << std::endl;
+                std::cout << "double: " << static_cast <double> (x) << std::endl;    
             }
         }
     }
@@ -98,17 +98,17 @@ void    print_int_float_double(std::string const &str, long double x)
         }
         else
         {
-            std::cout << "int: " << static_cast < int > (x) << std::endl;
+            std::cout << "int: " << static_cast <int> (x) << std::endl;
             if (static_cast <float> (x) == static_cast <int> (x))
             {
-                std::cout << "float: " << static_cast < float > (x) << ".0f" << std::endl;
-                std::cout << "double: " << static_cast < double > (x) << ".0" << std::endl;
+                std::cout << "float: " << static_cast <float> (x) << ".0f" << std::endl;
+                std::cout << "double: " << static_cast <double> (x) << ".0" << std::endl;
                 
             }
             else
             {
-                std::cout << "float: " << static_cast < float > (x) << "f" << std::endl;
-                std::cout << "double: " << static_cast < double > (x) << std::endl;    
+                std::cout << "float: " << static_cast <float> (x) << "f" << std::endl;
+                std::cout << "double: " << static_cast <double> (x) << std::endl;    
             }
         }     
     }
@@ -117,22 +117,22 @@ void    print_int_float_double(std::string const &str, long double x)
 //*******************************************************************************
 int	main(int ac, char **av)
 {
-    long double x = 0.0;
+    double x = 0.0;
 	if (ac != 2)
 	    std::cout << "ERROR : 🚫 Wrong number of arguments" << std::endl;
     	else
 	{
-		if (((std::string)av[1]).length() == 1 && !std::isdigit((unsigned char)(av[1][0])))
+		if (((std::string)av[1]).length() == 1 && !std::isdigit(av[1][0]))
             print_char(static_cast < unsigned char > (av[1][0]));
         else if (((std::string)av[1]).length() > 1 && str_is_nan(av[1]))
             print_nan();
         else
         {
-		x = std::stold(av[1]);
-            if (static_cast < int > (x) > 126 || static_cast < int > (x) < 32)
+		x = std::atof(av[1]);
+            if (static_cast <int> (x) > 126 || static_cast <int> (x) < 32)
             std::cout << "char: Non displayable" << std::endl;
         else
-            std::cout << "char: '" << static_cast < char > (x) << "'" << std::endl;
+            std::cout << "char: '" << static_cast <char> (x) << "'" << std::endl;
             print_int_float_double(av[1], x);
         }
 	}
