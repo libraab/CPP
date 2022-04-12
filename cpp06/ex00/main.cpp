@@ -28,7 +28,7 @@
     {
         for(int i = 0; str[i]; i++)
         {
-            if(str[i] == '.')
+            if(str[i] == '.' || str[i] == 'f')
                 return (true);
         }
         return (false);
@@ -54,17 +54,17 @@ void    print_int_float_double(std::string const &str, double x)
 {
     if (str_is_double(str))
     {
-        if (x > std::numeric_limits <long double> ::max())
+        if (x > std::numeric_limits <double> ::max())
         {
             std::cout << "int: impossible" << std::endl;
-            std::cout << "float: +inf" << std::endl;
-            std::cout << "double: +inf" << std::endl; 
+            std::cout << "float: +inff" << std::endl;
+            std::cout << "double: +inff" << std::endl; 
         }
-        else if (x < std::numeric_limits <long double> ::min())
+        else if (x < std::numeric_limits <double> ::min())
         {
             std::cout << "int: impossible" << std::endl;
-            std::cout << "float: -inf" << std::endl;
-            std::cout << "double: -inf" << std::endl; 
+            std::cout << "float: -inff" << std::endl;
+            std::cout << "double: -inff" << std::endl; 
         }
         else
         {
