@@ -34,7 +34,7 @@
         return (false);
     }
 //******************************************************************************
-    void print_char(unsigned char c)
+    void print_char(char c)
     {
         std::cout << "char: '" << c << "'" << std::endl;
         std::cout << "int: " << static_cast <int> (c) << std::endl;
@@ -123,7 +123,7 @@ int	main(int ac, char **av)
     	else
 	{
 		if (((std::string)av[1]).length() == 1 && !std::isdigit(av[1][0]))
-            print_char(static_cast < unsigned char > (av[1][0]));
+            print_char(av[1][0]);
         else if (((std::string)av[1]).length() > 1 && str_is_nan(av[1]))
             print_nan();
         else
