@@ -50,25 +50,30 @@
         std::cout << "double: nan" << std::endl;
     }
 //*******************************************************************************
-void    print_int_float_double(std::string const &str, double x)
+void    print_int_float_double(std::string const &str, long double x)
 {
     if (str_is_double(str))
     {
         if (x > std::numeric_limits <double> ::max())
         {
-            std::cout << "int: impossible" << std::endl;
-            std::cout << "float: +inff" << std::endl;
-            std::cout << "double: +inff" << std::endl; 
+            std::cout << "int: inf" << std::endl;
+            std::cout << "float: inff" << std::endl;
+            std::cout << "double: inf" << std::endl; 
         }
         else if (x < std::numeric_limits <double> ::min())
         {
-            std::cout << "int: impossible" << std::endl;
+            std::cout << "int: -inf" << std::endl;
             std::cout << "float: -inff" << std::endl;
-            std::cout << "double: -inff" << std::endl; 
+            std::cout << "double: -inf" << std::endl; 
         }
         else
         {
-            std::cout << "int: " << static_cast <int> (x) << std::endl;
+		if(x > std::numeric_limits <int> ::max())
+			std::cout << "int: inf" << std::endl;
+		else if (x < std::numeric_limits <int> ::min())
+			std::cout << "int: -inf" << std::endl;
+		else
+			std::cout << "int: " << static_cast <int> (x) << std::endl;
             if (static_cast <float> (x) == static_cast <int> (x))
             {
                 std::cout << "float: " << static_cast <float> (x) << ".0f" << std::endl;
@@ -86,15 +91,27 @@ void    print_int_float_double(std::string const &str, double x)
     {
         if (x > std::numeric_limits <int> ::max())
         {
-            std::cout << "int: impossible" << std::endl;
-            std::cout << "float: +inf" << std::endl;
-            std::cout << "double: +inf" << std::endl; 
+            std::cout << "int: inf" << std::endl;
+            if (x > std::numeric_limits <float> ::max())
+		std::cout << "float: +inf" << std::endl;
+	    else
+		std::cout << "float: " << static_cast <float> (x) << std::endl;
+	    if (x > std::numeric_limits <double> ::max())
+            	std::cout << "double: +inf" << std::endl;
+	    else
+		std::cout << "double: " << static_cast <double> (x) << std::endl;
         }
         else if (x < std::numeric_limits <int> ::min())
         {
-            std::cout << "int: impossible" << std::endl;
-            std::cout << "float: -inf" << std::endl;
-            std::cout << "double: -inf" << std::endl; 
+            std::cout << "int: -inf" << std::endl;
+	    if (x < std::numeric_limits <float> ::min())
+            	std::cout << "float: -inf" << std::endl;
+	    else
+		std::cout << "float: " << static_cast <float> (x) << std::endl;
+	    if (x < std::numeric_limits <double> ::min())
+            	std::cout << "double: -inf" << std::endl;
+	    else
+		std::cout <<"double: " << static_cast <double> (x) << std::endl;
         }
         else
         {
@@ -117,7 +134,7 @@ void    print_int_float_double(std::string const &str, double x)
 //*******************************************************************************
 int	main(int ac, char **av)
 {
-    double x = 0.0;
+    long double x = 0.0;
 	if (ac != 2)
 	    std::cout << "ERROR : 🚫 Wrong number of arguments" << std::endl;
     	else
