@@ -6,7 +6,7 @@
 /*   By: abouhlel <abouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 09:52:44 by abouhlel          #+#    #+#             */
-/*   Updated: 2022/04/07 14:28:24 by abouhlel         ###   ########.fr       */
+/*   Updated: 2022/04/13 09:34:15 by abouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,21 @@
         return (false);
     }
 //******************************************************************************
+    int	str_is_inf(std::string const &str)
+    {
+        if(str == "inf" || str == "+inf" || str == "inff" || str == "+inff")
+            return (1);
+        if(str == "-inf" || str == "-inff")
+            return (2);
+        return (0);
+    }
+//******************************************************************************
     void print_char(char c)
     {
         std::cout << "char: '" << c << "'" << std::endl;
         std::cout << "int: " << static_cast <int> (c) << std::endl;
-        std::cout << "float: " << static_cast <float> (c) << "f"  << std::endl;
-        std::cout << "double: " << static_cast <double> (c) << std::endl;
+        std::cout << "float: " << static_cast <float> (c) << ".0f"  << std::endl;
+        std::cout << "double: " << static_cast <double> (c) << "0." << std::endl;
     }
 //******************************************************************************
     void print_nan(void)
@@ -141,6 +150,23 @@ int	main(int ac, char **av)
 	{
 		if (((std::string)av[1]).length() == 1 && !std::isdigit(av[1][0]))
             print_char(av[1][0]);
+        else if (str_is_inf(av[1]))
+        {
+            std::cout << "char: impossible" << std::endl;
+            if (str_is_inf(av[1]) == 1)
+            {
+                std::cout << "int: inf" << std::endl;
+                std::cout << "float: inff" << std::endl;
+                std::cout << "double: inf" << std::endl;
+            }
+            else
+            {
+                std::cout << "int: -inf" << std::endl;
+                std::cout << "float: -inff" << std::endl;
+                std::cout << "double: -inf" << std::endl;
+            }
+            return (0);
+        }
         else if (((std::string)av[1]).length() > 1 && str_is_nan(av[1]))
             print_nan();
         else
