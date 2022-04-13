@@ -6,7 +6,7 @@
 /*   By: abouhlel <abouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 09:52:44 by abouhlel          #+#    #+#             */
-/*   Updated: 2022/04/13 09:34:15 by abouhlel         ###   ########.fr       */
+/*   Updated: 2022/04/13 09:54:23 by abouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@
         std::cout << "char: '" << c << "'" << std::endl;
         std::cout << "int: " << static_cast <int> (c) << std::endl;
         std::cout << "float: " << static_cast <float> (c) << ".0f"  << std::endl;
-        std::cout << "double: " << static_cast <double> (c) << "0." << std::endl;
+        std::cout << "double: " << static_cast <double> (c) << ".0" << std::endl;
     }
 //******************************************************************************
     void print_nan(void)
