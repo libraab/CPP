@@ -7,13 +7,21 @@ class Array
 {
 	public:
 		Array() : _size(0), _array(NULL) {}
-		Array(unsigned int x) : _size(x), _array(new T[x]) {}
 		Array(Array const &cpy) {*this = cpy;}
-		~Array() {}
+		Array(unsigned int x) : _size(x), _array(new T[x]) {}
+		~Array() {delete [] _array;}
 		
-		Array &operator = (Array const &op) {
-			this->_array = op._array;
-			this->_size = op._size;
+		int	get_size() const {return (this->_size);}
+		T	*get_array() const {return (this->_array);}
+
+		Array &operator = (Array const &op)
+		{
+			if (_size > 0)
+				delete [] _array;
+			this->_size = op.get_size();
+			_array = new T[_size];
+			for (int i = 0; i < this->_size; i++)
+				this->_array[i] = op._array[i];
 			return (*this);
 		}
 		
@@ -23,9 +31,6 @@ class Array
 				throw Array::Off_limit();
 			return (this->_array[x]);
 		}
-
-		int	size() const {return (this->_size);}
-		T	get_array() const {return (this->_array);}
 
 		class	Off_limit : public std::exception
 		{
