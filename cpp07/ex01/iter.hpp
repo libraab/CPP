@@ -1,8 +1,5 @@
 #pragma once
 #include <iostream>
-#include <string>
-#include <cmath>
-#include <cstddef>
 
 template <typename T>
 void	iter(T *str, size_t x, void (*f)(T))
