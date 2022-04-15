@@ -6,7 +6,7 @@
 /*   By: abouhlel <abouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 10:29:12 by abouhlel          #+#    #+#             */
-/*   Updated: 2022/04/15 11:33:26 by abouhlel         ###   ########.fr       */
+/*   Updated: 2022/04/15 15:14:50 by abouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ public:
 
 	Span(unsigned int max);
 	Span(Span const	&src);
-	~Span(void);
+	virtual ~Span(void);
 
 	Span	&operator = (Span const &op);
 

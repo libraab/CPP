@@ -6,38 +6,30 @@
 /*   By: abouhlel <abouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 10:25:10 by abouhlel          #+#    #+#             */
-/*   Updated: 2022/04/15 10:28:43 by abouhlel         ###   ########.fr       */
+/*   Updated: 2022/04/15 16:11:46 by abouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include <iostream>
-# include <stack>
+#include <algorithm>
+#include <iostream>
+#include <stack>
 #include <list>
 
-template <typename T>
-class	MutantStack : public std::stack<T>
+template<typename T>
+class MutantStack : public std::stack<T>
 {
-	public:
+public:
+	MutantStack() {}
+	MutantStack(const MutantStack<T> &src) { *this = src; }
+	MutantStack<T> &operator=(const MutantStack<T> &rhs) 
+	{
+		this->c = rhs.c;
+		return *this;
+	}
+	~MutantStack() {}
 
-		MutantStack<T>(void) {}
-		MutantStack<T>(MutantStack <T> const &src)
-		{
-			*this = src;
-		}
-		virtual ~MutantStack<T>(void) {}
+	typedef typename std::stack<T>::container_type::iterator iterator;
 
-		MutantStack<T>	&operator=(MutantStack<T> const &rhs)
-		{
-			if (this != &rhs)
-			{
-				std::stack<T>::operator=(rhs);
-			}
-
-			return (*this);
-		}
-
-		typedef typename std::stack<T>::container_type::iterator iterator;
-
-		iterator	begin() { return std::begin(this->c); }
-		iterator	end() { return std::end(this->c); }
+	iterator begin() { return this->c.begin(); }
+	iterator end() { return this->c.end(); }
 };

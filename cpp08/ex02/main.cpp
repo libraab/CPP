@@ -6,13 +6,13 @@
 /*   By: abouhlel <abouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 10:25:19 by abouhlel          #+#    #+#             */
-/*   Updated: 2022/04/15 10:27:37 by abouhlel         ###   ########.fr       */
+/*   Updated: 2022/04/15 16:12:06 by abouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MutantStack.hpp"
 
-int	main(void)
+void	test1(void)
 {
 	MutantStack<int> mstack;
 
@@ -42,12 +42,10 @@ int	main(void)
 		std::cout << *it << std::endl;
 		++it;
 	}
-	std::stack<int> s(mstack);	
-
-
-	std::cout << std::endl << "Comparing with a list :" << std::endl << std::endl;
-
-	
+	std::stack<int> s(mstack);
+}
+void	test2(void)
+{
 	std::list<int> mlist;
 
 	mlist.push_back(5);
@@ -76,5 +74,19 @@ int	main(void)
 		std::cout << *itl << std::endl;
 		++itl;
 	}
-	std::list<int> l(mlist);	
+}
+
+int	main(void)
+{
+	std::cout << "➖➖➖➖➖" << std::endl;
+	std::cout << " TEST (1)" << std::endl;
+	std::cout << "➖➖➖➖➖" << std::endl;
+	test1();
+
+	std::cout << "➖➖➖➖➖" << std::endl;
+	std::cout << " TEST (2)" << std::endl;
+	std::cout << "➖➖➖➖➖" << std::endl;
+	test2();
+
+	return (0);
 }
