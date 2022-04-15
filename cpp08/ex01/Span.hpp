@@ -1,34 +1,48 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Span.hpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: abouhlel <abouhlel@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/15 10:29:12 by abouhlel          #+#    #+#             */
+/*   Updated: 2022/04/15 11:33:26 by abouhlel         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #pragma once
 
-#include <iostream>
-#include <vector>
+# include <iostream>
+# include <algorithm>
+# include <exception>
+# include <vector>
 
-class Span
-{
-    public:
-        Span(unsigned int N);
-        Span(Span const &cpy);
-        Span(void);
-        ~Span(void);
+class	Span {
 
-        Span &operator = (Span const &op);
-        void    addNumber(unsigned int const x);
-        unsigned int    shortestSpan(void) const;
-        unsigned int    longestSpan(void) const;
-        //-----------------------------------------
-        class full_span: public std::exception
-		{
-			const char * what() const throw();
-		};
-        //-----------------------------------------
-		class unvalid_distance: public std::exception
-		{
-			const char * what() const throw();
-		};
-        //-----------------------------------------
+public:
 
-    private:
-        unsigned int const  N;
-	    std::vector <int>	v_tab;
-        Span(void);
+	Span(unsigned int max);
+	Span(Span const	&src);
+	~Span(void);
+
+	Span	&operator = (Span const &op);
+
+	unsigned int	shortestSpan(void) const;
+	unsigned int	longestSpan(void) const;
+    
+	unsigned int                get_N(void) const;
+	std::vector <int> const     &get_v_tab(void) const;
+
+	void	addNumber(int nbr);
+	void	adding(std::vector <int> ::iterator begin, std::vector <int> ::iterator end);
+
+
+private:
+
+	Span(void);
+
+	unsigned int	N;
+	std::vector <int>	v_tab;
 };
+
+std::ostream	&operator << (std::ostream &stream, Span const &stream_output);
